@@ -206,7 +206,7 @@ return [
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
-        Acacha\LaravelSocial\Providers\LaravelSocialServiceProvider::class,
+        //Acacha\LaravelSocial\Providers\LaravelSocialServiceProvider::class,
         #llum_providers
 
     ],
