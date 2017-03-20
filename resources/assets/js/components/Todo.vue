@@ -1,4 +1,3 @@
-
 <template xmlns:v-on="http://www.w3.org/1999/xhtml">
     <tr>
         <td>{{index + from}}</td>
