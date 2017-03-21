@@ -9,47 +9,75 @@
 </head>
 
 <style>
+
 	html {
 		font-family: Sans-Serif;
-	}
+			}
+
 
 	form {
 		display: table;
 	}
 
 	form div {
-		display: table-row;
+
+		display: table-cell;
+
 	}
 
-	form label, form input {
+	form label,form input{
+
 		display: table-cell;
 	}
 
-	form label {
-		text-align: right;
-	}
+
 
 </style>
 
+
 <body>
 
-<h1>Personal information</h1>
+<h1>Dades Personals</h1>
 
 <form action="">
+
+
+
+
 	<div>
-		<label for="name">First name: </label>
+		<label for="name">First name:</label>
 		<input type="text" name="name">
 	</div>
 
 	<div>
-		<label for="lastName">Last name: </label>
-		<input type="text" name="lastName">
+		<label for="Lastname">Last name:</label>
+		<input type="text" name="lastname">
 	</div>
 
 	<div>
-		<label for="age">Age: </label>
+		<label for="age">age:</label>
 		<input type="text" name="age">
 	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </form>
+
+
+
 </body>
 </html>

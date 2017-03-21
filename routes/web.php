@@ -35,12 +35,16 @@ Route::group(['middleware' => 'auth'], function () {
         return view('layoutfloat');
     });
 
+    Route::get('/Csstable', function () {
+        return view('csstable');
+    });
+
+    Route::get('/bootstraplayout1', function () {
+        return view('bootstraplayout1');
+    });
+
     #adminlte_routes
-    Route::get('bootstraplayout', 'BootstraplayoutController@index')->name('bootstraplayout');
-
     Route::get('flexboxlayout', 'FlexboxlayoutController@index')->name('flexboxlayout');
-
-    Route::get('csstables', 'CsstablesController@index')->name('csstables');
 
 });
 
