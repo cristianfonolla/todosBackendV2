@@ -44,6 +44,8 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     #adminlte_routes
+    Route::get('provatest', 'ProvatestController@index')->name('provatest');
+
     Route::get('flexboxlayout', 'FlexboxlayoutController@index')->name('flexboxlayout');
 
 });

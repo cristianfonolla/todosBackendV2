@@ -1,21 +1,21 @@
 <template>
 
-    <form method="post" @submit.prevent="submit">
+    <form method="post" @submit.prevent="submit" @keydown="form.errors.clear($event.target.name)">
         <div class="form-group has-feedback has-error">
-            <input type="text" class="form-control" placeholder="" name="name" value="" v-model="name" @keydown="errors.clear('name')"/>
+            <input type="text" class="form-control" placeholder="" name="name" value="" v-model="form.name"/>
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
-            <span class="help-block" v-if="errors.has('name')" v-text="errors.get('name')"></span>
+            <span class="help-block" v-if="form.errors.has('name')" v-text="form.errors.get('name')"></span>
         </div>
         <div class="form-group has-feedback">
-            <input type="email" class="form-control" placeholder="" name="email" value="" v-model="email"/>
+            <input type="email" class="form-control" placeholder="" name="email" value="" v-model="form.email"/>
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
-            <input type="password" class="form-control" placeholder="" name="password" v-model="password"/>
+            <input type="password" class="form-control" placeholder="" name="password" v-model="form.password"/>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
-            <input type="password" class="form-control" placeholder="" name="password_confirmation" v-model="password_confirmation"/>
+            <input type="password" class="form-control" placeholder="" name="password_confirmation" v-model="form.password_confirmation"/>
             <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
         </div>
         <div class="row">
@@ -23,7 +23,7 @@
                 <label>
                     <div class="checkbox_register icheck">
                         <label>
-                            <input type="checkbox" name="terms">
+                            <input type="checkbox" name="terms" checked>
                         </label>
                     </div>
                 </label>
@@ -34,7 +34,7 @@
                 </div>
             </div><!-- /.col -->
             <div class="col-xs-4 col-xs-push-1">
-                <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+                <button type="submit" class="btn btn-primary btn-block btn-flat" :disabled="form.errors.any()"><i class="fa fa-refresh fa-spin" v-if="form.submitting"></i>Register</button>
             </div><!-- /.col -->
         </div>
     </form>
@@ -45,6 +45,74 @@
 
 //    import './Errors.js'
 
+class Form {
+
+    /*
+     *  Constructor.
+     */
+    constructor(originalFields){
+        this.fields = originalFields
+
+        for (let field in originalFields){
+            this[field] = originalFields[field]
+        }
+
+        this.errors = new Errors()
+        this.submitting = false
+    }
+
+    /**
+     *
+     * Buida tot el formulari
+     *
+     */
+    reset(){
+        this.fields={}
+
+        for (let field in this.fields){
+            this[field] = ''
+        }
+
+        this.errors.clear()
+    }
+
+    data() {
+        let data = {}
+
+        for (let field in this.fields){
+            data[field] = this[field]
+        }
+
+        return data
+    }
+
+    submit(requestType,url){
+        this.submitting = true
+        return new Promise((resolve,reject) =>{
+            axios[requestType](url,this.data())
+                .then( response =>{
+                    this.onSuccess(response)
+                    resolve(response)
+                }).catch(error => {
+                this.onFail(error)
+                reject(error)
+            })
+        })
+
+    }
+
+    onSuccess(response){
+        this.reset()
+        this.submitting = false
+    }
+
+    onFail(error){
+        console.log(error)
+        this.errors.record(error.response.data)
+        this.submitting = false
+    }
+}
+
 class Errors {
     /*
      *  Constructor.
@@ -54,6 +122,13 @@ class Errors {
     }
 
     //API
+
+    /**
+     * Determine if we have any errors
+     */
+    any(){
+      return Object.keys(this.errors).length > 0
+    }
 
     has(field){
         // Underscore | Lodash
@@ -72,16 +147,30 @@ class Errors {
         }
     }
 
+    /**
+     * Return all errors
+     * @param field
+     * @returns {*}
+     */
+    getAllErrors(field){
+        if (this.errors[field]){
+            return this.errors[field]
+        }
+    }
+
     record(errors){
         this.errors = errors
     }
 
     clear(field){
         if(field){
+            delete this.errors[field]
 
+            return;
         }
+
+        this.errors = {};
     }
-    //TODO clear
 
 }
 
@@ -92,29 +181,28 @@ class Errors {
         },
         data: function () {
             return {
-                name: '',
-                email: '',
-                password: '',
-                password_confirmation: '',
-                terms: true,
-                errors : new Errors()
+                form: new Form(
+                    {
+                        name: '',
+                        email: '',
+                        password: '',
+                        password_confirmation:'',
+                        terms: true
+                    }
+                )
             }
         },
         methods: {
             submit() {
                 console.log('submitting')
-                //Client http
-                //Promise
-//                let data = new FormData(document.querySelector("form"))
-//                console.log(data)
-                axios.post('/register',this.$data)
-                .then(response => {
-                    console.log(response)
-                    //TODO redirect to home
-                }).catch(error => {
-                    this.errors.record(error.response.data)
-                })
-                // Arrow functions. ES6 només
+                this.form.submit('post','/register')
+                    .then(response => {
+                        console.log(response)
+                        //TODO redirect to home
+                    })
+                    .catch(error => {
+                      console.log(error.response.data)
+                    })
             }
         }
     }
