@@ -34,7 +34,7 @@
             <span class="btn btn-md bg-green" @click="edittodo(index,todo)">
                 <i class="fa fa-fw fa-pencil" ></i>
             </span>
-            <button class="btn btn-md btn-warning" v-on:click=" deletetodo(index,todo.id)"><i class="fa fa-trash-o"></i></button>
+            <button class="btn btn-md bg-red" v-on:click=" deletetodo(index,todo.id)"><i class="fa fa-trash-o"></i></button>
 
         </td>
     </tr>
