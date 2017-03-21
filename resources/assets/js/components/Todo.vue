@@ -5,7 +5,7 @@
             <input type="text" v-model="todo.name" v-show="editing" @keyup.enter="canviaNom(index,todo)"
                    v-todo-focus="editing" onfocus="this.select();"
                    @keyup.esc="canceleditName(todo)">
-            <span @click="canviaNom(index,todo)"><i class="fa fa-fw fa-edit " v-show="!editing"></i></span>
+            <span @click="canviaNom(index,todo)"><i class="fa fa-fw fa-pencil-square " v-show="!editing"></i></span>
             <span @click="canviaNom(index,todo)"><i class="fa fa-fw fa-check bg-green" v-show="editing"></i></span>
             <span @click="canceleditName(todo)"><i class="fa fa-fw fa-close bg-red" v-show="editing"></i></span>
         </td>
@@ -31,8 +31,8 @@
         <td><span class="badge bg-red">55%</span></td>
         <td>
 
-            <span class="btn btn-md btn-info" @click="edittodo(index,todo)">
-                <i class="fa fa-fw fa-edit" ></i>
+            <span class="btn btn-md bg-green" @click="edittodo(index,todo)">
+                <i class="fa fa-fw fa-pencil" ></i>
             </span>
             <button class="btn btn-md btn-warning" v-on:click=" deletetodo(index,todo.id)"><i class="fa fa-trash-o"></i></button>
 
