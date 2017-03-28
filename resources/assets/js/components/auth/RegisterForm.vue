@@ -1,41 +1,42 @@
 <template>
-
     <form method="post" @submit.prevent="submit" @keydown="form.errors.clear($event.target.name)">
-        <div class="form-group has-feedback has-error">
-            <input type="text" class="form-control" placeholder="" name="name" value="" v-model="form.name"/>
+        <div class="form-group has-feedback" :class="{ 'has-error': form.errors.has('name') }">
+            <input type="text" class="form-control" placeholder="Your name here" name="name" value="" v-model="form.name" />
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
             <span class="help-block" v-if="form.errors.has('name')" v-text="form.errors.get('name')"></span>
         </div>
-        <div class="form-group has-feedback">
-            <input type="email" class="form-control" placeholder="" name="email" value="" v-model="form.email"/>
+
+        <div class="form-group has-feedback" :class="{ 'has-error': form.errors.has('email') }">
+            <input type="email" class="form-control" placeholder="Your email here" name="email" value="" v-model="form.email"/>
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            <span class="help-block" v-if="form.errors.has('email')" v-text="form.errors.get('email')"></span>
+        </div>
+        <div class="form-group has-feedback" :class="{ 'has-error': form.errors.has('password') }">
+            <input type="password" class="form-control" placeholder="Password here" name="password" v-model="form.password"/>
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            <span class="help-block" v-if="form.errors.has('password')" v-text="form.errors.get('password')"></span>
         </div>
         <div class="form-group has-feedback">
-            <input type="password" class="form-control" placeholder="" name="password" v-model="form.password"/>
+            <input type="password" class="form-control" placeholder="Password here" name="password_confirmation" v-model="form.password_confirmation"/>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
-        <div class="form-group has-feedback">
-            <input type="password" class="form-control" placeholder="" name="password_confirmation" v-model="form.password_confirmation"/>
-            <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
-        </div>
         <div class="row">
-            <div class="col-xs-1">
+            <div class="col-xs-7">
                 <label>
                     <div class="checkbox_register icheck">
-                        <label>
-                            <input type="checkbox" name="terms" checked>
+                        <label data-toggle="modal" data-target="#termsModal">
+                            <input type="checkbox" name="terms" v-model="form.terms" class="has-error">
+                            <a href="#" :class="{ 'text-danger': form.errors.has('terms') }">Terms and conditions</a>
                         </label>
                     </div>
                 </label>
-            </div><!-- /.col -->
-            <div class="col-xs-6">
-                <div class="form-group">
-                    <button type="button" class="btn btn-block btn-flat" data-toggle="modal" data-target="#termsModal">Accepta les condicions</button>
-                </div>
-            </div><!-- /.col -->
+            </div>
             <div class="col-xs-4 col-xs-push-1">
-                <button type="submit" class="btn btn-primary btn-block btn-flat" :disabled="form.errors.any()"><i class="fa fa-refresh fa-spin" v-if="form.submitting"></i>Register</button>
-            </div><!-- /.col -->
+                <button type="submit" class="btn btn-primary btn-block btn-flat" :disabled="form.errors.any()"><i v-if="form.submitting" class="fa fa-refresh fa-spin"></i> Register</button>
+            </div>
+        </div>
+        <div v-if="form.errors.has('terms')" class="form-group has-feedback" :class="{ 'has-error': form.errors.has('terms') }">
+            <span class="help-block" v-if="form.errors.has('terms')" v-text="form.errors.get('terms')"></span>
         </div>
     </form>
 
@@ -43,168 +44,66 @@
 
 <script>
 
-//    import './Errors.js'
+import Form from 'cristian-forms'
 
-class Form {
+export default {
+  mounted() {
+    console.log('Component mounted!')
+    let form =  new FormData(document.querySelector("form"))
+    console.log(form)
+    console.log(form.fields)
 
-    /*
-     *  Constructor.
-     */
-    constructor(originalFields){
-        this.fields = originalFields
+    this.initialitzeICheck()
 
-        for (let field in originalFields){
-            this[field] = originalFields[field]
-        }
-
-        this.errors = new Errors()
-        this.submitting = false
+  },
+  data: function () {
+    return {
+      form: new Form( { name: '', email: '', password: '', password_confirmation: '', terms: ''  } )
     }
-
-    /**
-     *
-     * Buida tot el formulari
-     *
-     */
-    reset(){
-        this.fields={}
-
-        for (let field in this.fields){
-            this[field] = ''
-        }
-
-        this.errors.clear()
+  },
+  watch: {
+    'form.terms': function (value) {
+      if(value) {
+        $('input').iCheck('check')
+      } else {
+        $('input').iCheck('uncheck')
+      }
     }
+  },
+  methods: {
+    initialitzeICheck() {
+      var component = this
+      $('input').iCheck({
+        checkboxClass: 'icheckbox_square-blue',
+        radioClass: 'iradio_square-blue',
+        increaseArea: '20%',
+        inheritClass: true
+      }).on('ifChecked', function(event){
+        component.form.set('terms',true)
+        component.form.errors.clear('terms')
+      }).on('ifUnchecked', function(event){
+        component.form.set('terms','')
+      });
+    },
+    submit() {
+      this.form.post('/register')
+       .then( response => {
+         console.log('REGISTER OK!!!!!!!!!!!!!!')
+         console.log(response.redirect)
+         console.log(response.status)
+         console.log(response.data)
 
-    data() {
-        let data = {}
+         this.redirect(response)
+       })
+       .catch( error => {
 
-        for (let field in this.fields){
-            data[field] = this[field]
-        }
-
-        return data
+       })
+    },
+    redirect(response) {
+      window.location.reload()
     }
-
-    submit(requestType,url){
-        this.submitting = true
-        return new Promise((resolve,reject) =>{
-            axios[requestType](url,this.data())
-                .then( response =>{
-                    this.onSuccess(response)
-                    resolve(response)
-                }).catch(error => {
-                this.onFail(error)
-                reject(error)
-            })
-        })
-
-    }
-
-    onSuccess(response){
-        this.reset()
-        this.submitting = false
-    }
-
-    onFail(error){
-        console.log(error)
-        this.errors.record(error.response.data)
-        this.submitting = false
-    }
+  }
 }
-
-class Errors {
-    /*
-     *  Constructor.
-     */
-    constructor(){
-        this.errors = {}
-    }
-
-    //API
-
-    /**
-     * Determine if we have any errors
-     */
-    any(){
-      return Object.keys(this.errors).length > 0
-    }
-
-    has(field){
-        // Underscore | Lodash
-        return this.errors.hasOwnProperty(field)
-    }
-
-    /**
-     * Retrieve the error message for a field
-     *
-     * @param field
-     * @returns {*}
-     */
-    get(field){
-        if (this.errors[field]){
-            return this.errors[field][0]
-        }
-    }
-
-    /**
-     * Return all errors
-     * @param field
-     * @returns {*}
-     */
-    getAllErrors(field){
-        if (this.errors[field]){
-            return this.errors[field]
-        }
-    }
-
-    record(errors){
-        this.errors = errors
-    }
-
-    clear(field){
-        if(field){
-            delete this.errors[field]
-
-            return;
-        }
-
-        this.errors = {};
-    }
-
-}
-
-
-    export default {
-        mounted() {
-            console.log('Component register Form mounted.')
-        },
-        data: function () {
-            return {
-                form: new Form(
-                    {
-                        name: '',
-                        email: '',
-                        password: '',
-                        password_confirmation:'',
-                        terms: true
-                    }
-                )
-            }
-        },
-        methods: {
-            submit() {
-                console.log('submitting')
-                this.form.submit('post','/register')
-                    .then(response => {
-                        console.log(response)
-                        //TODO redirect to home
-                    })
-                    .catch(error => {
-                      console.log(error.response.data)
-                    })
-            }
-        }
-    }
 
 </script>
+

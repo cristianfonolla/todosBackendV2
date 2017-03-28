@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "axios": "^0.15.2",
+    "cristian-forms": "^1.0.0",
     "sweetalert": "^1.1.3"
   }
 }
