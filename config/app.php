@@ -190,6 +190,11 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
         //llum_providers
 
+
+        //telegram provider
+        NotificationChannels\Telegram\TelegramServiceProvider::class,
+
+
         /*
          * Acacha Llum Service Providers...
          *
