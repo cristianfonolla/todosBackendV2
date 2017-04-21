@@ -71,7 +71,7 @@ window.io = io
 //     encrypted: true
 // });
 
-window.Echo = new Echo({
-    broadcaster: 'socket.io',
-    host: 'http://localhost:6001'
-});
+// window.Echo = new Echo({
+//     broadcaster: 'socket.io',
+//     host: 'http://localhost:6001'
+// });
