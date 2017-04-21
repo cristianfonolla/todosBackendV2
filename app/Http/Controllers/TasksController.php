@@ -77,13 +77,11 @@ class TasksController extends Controller
         if (!$request->has('user_id')) {
             $request->merge(['user_id' => Auth::id()]);
         }
-
-        Task::create($request->all());
-
+        $this->repository->create($request->all());
         return response([
             'error'   => false,
-            'created' => true,
-            'message' => 'Task created!',
+            'created' => (bool) true,
+            'message' => 'Task created successfully',
         ], 200);
     }
 
