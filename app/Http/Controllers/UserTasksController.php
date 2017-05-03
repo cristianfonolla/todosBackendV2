@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\TodosBackend\Http\Controllers;
 
-use App\Repositories\UserTasksRepository;
-use App\Transformers\TaskTransformer;
-use App\Task;
-use App\User;
+use App\TodosBackend\Repositories\UserTasksRepository;
+use App\TodosBackend\Transformers\TaskTransformer;
+use App\TodosBackend\Task;
+use App\TodosBackend\User;
 use Illuminate\Http\Request;
 
 /**
  * Class UserTasksController
- * @package App\Http\Controllers
+ * @package App\TodosBackend\Http\Controllers
  */
 class UserTasksController extends Controller
 {
@@ -33,7 +33,7 @@ class UserTasksController extends Controller
 
         $tasks = $user->tasks()->paginate(15);
 
-        return $this->generatePaginatedResponse($tasks, ['propietari' => 'Cristian Fonolla']);
+        return $this->generatePaginatedResponse($tasks, ['propietari' => 'Paolo Davila']);
     }
 
     /**

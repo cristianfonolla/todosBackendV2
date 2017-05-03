@@ -1,4 +1,3 @@
-
 <?php
 
 return [
@@ -168,18 +167,22 @@ return [
          * Package Service Providers...
          */
         Laravel\Passport\PassportServiceProvider::class,
+        Laravel\Tinker\TinkerServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Spatie\Menu\Laravel\MenuServiceProvider::class,
+        NotificationChannels\Gcm\GcmServiceProvider::class,
+        NotificationChannels\OneSignal\OneSignalServiceProvider::class,
+        NotificationChannels\Telegram\TelegramServiceProvider::class,
         //
 
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        App\TodosBackend\Providers\AppServiceProvider::class,
+        App\TodosBackend\Providers\AuthServiceProvider::class,
+        // App\TodosBackend\Providers\BroadcastServiceProvider::class,
+        App\TodosBackend\Providers\EventServiceProvider::class,
+        App\TodosBackend\Providers\RouteServiceProvider::class,
 
         /*
          * Acacha Llum Service Providers...
@@ -189,11 +192,6 @@ return [
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         //llum_providers
-
-
-        //telegram provider
-        NotificationChannels\Telegram\TelegramServiceProvider::class,
-
 
         /*
          * Acacha Llum Service Providers...
@@ -212,7 +210,6 @@ return [
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
-        //Acacha\LaravelSocial\Providers\LaravelSocialServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         #llum_providers

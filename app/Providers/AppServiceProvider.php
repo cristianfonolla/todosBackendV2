@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Providers;
+namespace App\TodosBackend\Providers;
 
-use App\User;
+use App\TodosBackend\User;
 use Illuminate\Support\ServiceProvider;
 use Spatie\Permission\Models\Role;
 

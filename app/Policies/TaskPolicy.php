@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Policies;
+namespace App\TodosBackend\Policies;
 
-use App\User;
-use App\Task;
+use App\TodosBackend\User;
+use App\TodosBackend\Task;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 /**
  * Class TaskPolicy.
  *
- * @package App\Policies
+ * @package App\TodosBackend\Policies
  */
 class TaskPolicy extends BasePolicy
 {

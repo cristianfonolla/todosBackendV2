@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\TodosBackend\Http\Controllers;
 
-use App\Repositories\UserRepository;
-use App\Transformers\UserTransformer;
-use App\User;
+use App\TodosBackend\Repositories\UserRepository;
+use App\TodosBackend\Transformers\UserTransformer;
+use App\TodosBackend\User;
 use Illuminate\Http\Request;
 
 
@@ -34,7 +34,7 @@ class UsersController extends Controller
     {
         $users = $this->repository->paginate(15);
 
-        return $this->generatePaginatedResponse($users, ['propietari' => 'Cristian Fonolla']);
+        return $this->generatePaginatedResponse($users, ['propietari' => 'Paolo Davila']);
     }
 
     /**

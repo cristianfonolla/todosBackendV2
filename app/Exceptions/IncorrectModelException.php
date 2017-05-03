@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exceptions;
+namespace App\TodosBackend\Exceptions;
 
 class IncorrectModelException extends \Exception
 {

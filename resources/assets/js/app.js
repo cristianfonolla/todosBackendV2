@@ -14,8 +14,10 @@ require('./bootstrap');
  */
 
 Vue.component('todos', require('./components/Todos.vue'));
-
 Vue.component('register-form', require('./components/auth/RegisterForm.vue'));
+Vue.component('login-form', require('./components/auth/LoginForm.vue'));
+Vue.component('email-reset-password-form', require('./components/auth/EmailResetPasswordForm.vue'));
+Vue.component('reset-password-form', require('./components/auth/ResetPasswordForm.vue'));
 
 Vue.component(
     'passport-clients',
@@ -31,43 +33,43 @@ Vue.component(
     'passport-personal-access-tokens',
     require('./components/passport/PersonalAccessTokens.vue')
 );
-Vue.component('chat-messages', require('./components/ChatMessages.vue'));
-Vue.component('chat-form', require('./components/ChatForm.vue'));
+
+Vue.component(
+  'msg-messages',
+  require('./components/Messages/MsgMessages.vue')
+);
+
+Vue.component(
+  'msg-form',
+  require('./components/Messages/MsgForm.vue')
+);
 
 //Vm: view model
 const app = new Vue({
-    el: '#app',
-
-    data: {
-        messages: []
+  el: '#app',
+  data: {
+    messages: []
+  },
+  created() {
+    this.fetchMessages();
+    Echo.channel('msg').listen('MessageSent', (e) => {
+      this.messages.push({
+        message: e.message.message,
+        user: e.user
+      });
+    });
+  },
+  methods: {
+    fetchMessages() {
+      axios.get('/messages').then(response => {
+        this.messages = response.data;
+      });
     },
-
-    created() {
-        this.fetchMessages();
-
-        Echo.channel('chat')
-            .listen('MessageSent', (e) => {
-                this.messages.push({
-                    message: e.message.message,
-                    user: e.user
-                });
-            });
-    },
-
-    methods: {
-        fetchMessages() {
-            axios.get('/user/messages').then(response => {
-                this.messages = response.data
-            });
-        },
-
-        addMessage(message) {
-            this.messages.push(message)
-
-            axios.post('/messages', message).then(response => {
-                console.log(response.data)
-            })
-        }
+    addMessage(message) {
+      this.messages.push(message);
+      axios.post('/msg', message).then(response => {
+        console.log(response.data);
+      });
     }
-
+  }
 });

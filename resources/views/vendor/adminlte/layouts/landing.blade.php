@@ -29,11 +29,13 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
     <link href="{{ asset('/css/all.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/main.css') }}" rel="stylesheet">
 
-    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
 
 </head>
-
+<script>
+  window.Laravel = {"csrfToken":"nUXGi8tqDufvUEiBz0gpWKLH6xZh9szE5q699x1W"};
+</script>
 <body data-spy="scroll" data-offset="0" data-target="#navigation">
 
 <div id="app">
@@ -73,7 +75,8 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
         <div class="container">
             <div class="row centered">
                 <div class="col-lg-12">
-                    <h1>Cristian Todosbackend <b><a href="https://github.com/acacha/adminlte-laravel">adminlte-laravel</a></b></h1>
+                    <h1>Cristian<b><a href="https://github.com/acacha/adminlte-
+                    laravel">TodosBackend</a></b></h1>
                     <h3>A <a href="https://laravel.com/">Laravel</a> {{ trans('adminlte_lang::message.laravelpackage') }}
                         scaffolding/boilerplate {{ trans('adminlte_lang::message.to') }} <a href="https://almsaeedstudio.com/preview">AdminLTE</a> {{ trans('adminlte_lang::message.templatewith') }}
                         <a href="http://getbootstrap.com/">Bootstrap</a> 3.0 {{ trans('adminlte_lang::message.and') }} <a href="http://blacktie.co/demo/pratt/">Pratt</a> Landing page</h3>
@@ -281,7 +284,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                 <br/>
                 AdminLTE {{ trans('adminlte_lang::message.createdby') }} Abdullah Almsaeed <a href="https://almsaeedstudio.com/">almsaeedstudio.com</a>
                 <br/>
-                 Pratt Landing Page {{ trans('adminlte_lang::message.createdby') }} <a href="http://www.blacktie.co">BLACKTIE.CO</a>
+                Pratt Landing Page {{ trans('adminlte_lang::message.createdby') }} <a href="http://www.blacktie.co">BLACKTIE.CO</a>
             </p>
 
         </div>
@@ -291,12 +294,11 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="{{ asset('/js/app.js') }}"></script>
-<script src="{{ asset('/js/smoothscroll.js') }}"></script>
+<script src="{{ asset('/js/app-landing.js') }}"></script>
 <script>
-    $('.carousel').carousel({
-        interval: 3500
-    })
+  $('.carousel').carousel({
+    interval: 3500
+  })
 </script>
 </body>
 </html>

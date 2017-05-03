@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Repositories;
+namespace App\TodosBackend\Repositories;
 
-use \App\Repositories\Contracts\Repository;
-use App\User;
+use \App\TodosBackend\Repositories\Contracts\Repository;
+use App\TodosBackend\User;
 
 class UserRepository implements Repository
 {
