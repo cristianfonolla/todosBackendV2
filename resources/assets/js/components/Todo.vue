@@ -75,18 +75,18 @@
                 console.log(todo);
             },
             updateApi: function (todo){
-            this.$http.put('/api/v1/task/' + todo.id,{
-                name : todo.name,
-                priority : todo.priority,
-                done : todo.done,
-             }).then((response) => {
-                console.log(response);
+                this.$http.put('/api/v1/task/' + todo.id,{
+                    name : todo.name,
+                    priority : todo.priority,
+                    done : todo.done,
+                }).then((response) => {
+                    console.log(response);
 
-            }, (response) => {
-                // error callback
-                sweetAlert("Oops...", "Something went wrong!", "error");
-                console.log(response);
-            });
+                }, (response) => {
+                    // error callback
+                    sweetAlert("Oops...", "Something went wrong!", "error");
+                    console.log(response);
+                });
             },
             canviaVisiPrioritat: function(index,todo) {
                 this.bufferedTodopri = todo.priority;
@@ -118,19 +118,19 @@
         },
         directives: {
             'todo-focus': function (el, value) {
-              if (value) {
-                el.focus()
-              }
+                if (value) {
+                    el.focus()
+                }
             }
         }
     }
 
-//    $(function () {
-//            $('input').iCheck({
-//                checkboxClass: 'icheckbox_square-green',
-//                radioClass: 'iradio_square-green',
-//                increaseArea: '20%' // optional
-//            });
-//        });
+    //    $(function () {
+    //            $('input').iCheck({
+    //                checkboxClass: 'icheckbox_square-green',
+    //                radioClass: 'iradio_square-green',
+    //                increaseArea: '20%' // optional
+    //            });
+    //        });
 </script>
 

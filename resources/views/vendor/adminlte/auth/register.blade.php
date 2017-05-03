@@ -6,11 +6,11 @@
 
 @section('content')
 
-    <body class="hold-transition register-page">
+<body class="hold-transition register-page">
     <div id="app">
         <div class="register-box">
             <div class="register-logo">
-                <a href="{{ url('/home') }}"><b>Admin</b>LTE</a> UI
+                <a href="{{ url('/home') }}"><b>Admin</b>LTE</a> - USER
             </div>
 
             @if (count($errors) > 0)
@@ -40,6 +40,16 @@
 
     @include('adminlte::auth.terms')
 
-    </body>
+    <script>
+        $(function () {
+            $('input').iCheck({
+                checkboxClass: 'icheckbox_square-blue',
+                radioClass: 'iradio_square-blue',
+                increaseArea: '20%' // optional
+            });
+        });
+    </script>
+
+</body>
 
 @endsection

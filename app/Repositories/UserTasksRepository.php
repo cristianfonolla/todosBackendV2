@@ -1,10 +1,15 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: pdavila
+ * Date: 18/12/16
+ * Time: 20:24
+ */
 
+namespace PaoloDavila\TodosBackend\Repositories;
 
-namespace App\Repositories;
-
-use App\Task;
-use App\User;
+use PaoloDavila\TodosBackend\Task;
+use PaoloDavila\TodosBackend\User;
 
 class UserTasksRepository
 {

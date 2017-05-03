@@ -1,11 +1,15 @@
 <?php
 
-use App\Task;
+use PaoloDavila\TodosBackend\Task;
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::group(['middleware' => 'can:show,App\Task'], function () {
+    Route::group(['middleware' => 'can:show,PaoloDavila\TodosBackend\Task'], function () {
         Route::get('/tasks', function () {
-            return view('tasks');
+            $token = "TODO";
+            $data = [
+                "access_token" => $token
+            ];
+            return view('tasks',$data);
         });
     });
 
@@ -20,7 +24,7 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     Route::get('users', function () {
-        dd(App\User::paginate());
+        dd(PaoloDavila\TodosBackend\User::paginate());
     });
 
     Route::get('/boxmodel', function () {
@@ -35,20 +39,17 @@ Route::group(['middleware' => 'auth'], function () {
         return view('layoutfloat');
     });
 
-    Route::get('/Csstable', function () {
-        return view('csstable');
-    });
-
-    Route::get('/bootstraplayout1', function () {
-        return view('bootstraplayout1');
-    });
-
     #adminlte_routes
-    Route::get('messages', 'MessagesController@index')->name('messages');
+    Route::get('msg', 'MessagesController@index')->name('messages');
+    Route::post('msg', 'MessagesController@sendMessage');
 
-    Route::get('provatest', 'ProvatestController@index')->name('provatest');
+    Route::get('messages', 'MessagesController@fetchMessage');
+
+    Route::get('bootstraplayout', 'BootstraplayoutController@index')->name('bootstraplayout');
 
     Route::get('flexboxlayout', 'FlexboxlayoutController@index')->name('flexboxlayout');
+
+    Route::get('csstables', 'CsstablesController@index')->name('csstables');
 
 });
 

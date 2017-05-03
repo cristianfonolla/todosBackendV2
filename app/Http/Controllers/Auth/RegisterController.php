@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace PaoloDavila\TodosBackend\Http\Controllers\Auth;
 
-use App\User;
+use Illuminate\Http\Request;
+use PaoloDavila\TodosBackend\Events\Register;
+use PaoloDavila\TodosBackend\User;
 use Validator;
-use App\Http\Controllers\Controller;
+use PaoloDavila\TodosBackend\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 /**
@@ -83,5 +85,17 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
             'api_token'=> str_random(60),
         ]);
+    }
+
+    /**
+     * The user has been registered.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $user
+     * @return mixed
+     */
+    protected function registered(Request $request, $user)
+    {
+        event(new Register($user));
     }
 }
