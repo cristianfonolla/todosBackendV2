@@ -1,6 +1,6 @@
 <?php
 
-namespace RpgerMelich\TodosBackend\Mail;
+namespace Cristian\TodosBackend\Mail;
 
 use Illuminate\Mail\Mailable;
 use Illuminate\Contracts\Queue\ShouldQueue;
