@@ -1,24 +1,14 @@
 <?php
 
-<<<<<<< HEAD
-namespace App\TodosBackend\Transformers;
+namespace Cristian\TodosBackend\Transformers;
 
-use App\TodosBackend\Exceptions\IncorrectModelException;
-=======
-namespace PaoloDavila\TodosBackend\Transformers;
-
-use PaoloDavila\TodosBackend\Exceptions\IncorrectModelException;
->>>>>>> 5f032173417b209584ba0481b77168133212ef43
+use Cristian\TodosBackend\Exceptions\IncorrectModelException;
 
 class UserTransformer extends Transformer
 {
     public function transform($resource)
     {
-<<<<<<< HEAD
-        if (!$resource instanceof \App\TodosBackend\Task) {
-=======
-        if (!$resource instanceof \PaoloDavila\TodosBackend\Task) {
->>>>>>> 5f032173417b209584ba0481b77168133212ef43
+        if (!$resource instanceof \Cristian\TodosBackend\Task) {
             throw new IncorrectModelException();
         }
 

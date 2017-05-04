@@ -1,89 +1,71 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
 </head>
-
 <style>
-
-	header {
+	.header {
+		background-color: red;
 		padding: 10px;
 		margin: 10px;
-		background-color: indianred;
 	}
-
-	h1 {
-		text-align: center;
-		color: white;
-		line-height: 100px;
-		margin: 0;
-	}
-
-	section {
+	.article {
 		display: flex;
+		background-color: blue;
+		padding: 10px;
+		margin: 10px;;
 	}
-
-	.flex-column {
+	.container {
 		display: flex;
-		flex-direction: row;
+		margin-left: 220px;
 	}
 
-	article {
-		padding: 10px;
+	.nav {
+		display: flex;
+		position: absolute;
 		margin: 10px;
-		min-width: 200px;
-		background-color: #0a568c;
-	}
-
-	footer {
-		padding: 10px;
-		margin: 10px;
-		text-align: right;
+		width: 200px;
 		background-color: lightgrey;
+		height: 100%;
 	}
 
-	nav {
-		padding: 10px;
-		margin: 10px;
-		width: 50%;
-		background-color: darkslategrey;
+	.footer
+	{
+		display: flex;
+		position: fixed;
+		bottom: 0px;
+		height: 20px;
+		border: solid black 1px;
+		width: 100%;
+		background-color: lightblue;
 	}
 </style>
-
 <body>
 
-<header>
-	<h1>Simple flexbox example</h1>
-</header>
+<div class="header">Simple Flex Box</div>
+<div class="nav">
+	<ul>
+		<li>link1</li>
+		<li>link2</li>
+		<li>link3</li>
+	</ul>
+</div>
 
-<section>
-	<nav>
-		<ul>
-			<li>Link 1</li>
-			<li>Link 2</li>
-			<li>Link 3</li>
-			<li>About</li>
-			<li>Contact</li>
-		</ul>
-	</nav>
+<div class="container">
+	<div class="article">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquam aperiam cum ipsum magni minus nemo nostrum omnis quibusdam sint.</div>
+	<div class="article">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquam aperiam cum ipsum magni minus nemo nostrum omnis quibusdam sint.</div>
+	<div class="article">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquam aperiam cum ipsum magni minus nemo nostrum omnis quibusdam sint.</div>
 
-	<section class="flex-column">
-		<article>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis commodi cumque deleniti ea est eveniet fugit magni omnis ut velit. Alias error, maxime nisi non nostrum numquam ratione suscipit tenetur!</article>
-
-		<article>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis commodi cumque deleniti ea est eveniet fugit magni omnis ut velit. Alias error, maxime nisi non nostrum numquam ratione suscipit tenetur!</article>
-
-		<article>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis commodi cumque deleniti ea est eveniet fugit magni omnis ut velit. Alias error, maxime nisi non nostrum numquam ratione suscipit tenetur!</article>
-	</section>
-
-</section>
-
-<footer class="footer">
-	@copyright Paolo Dávila Inc.
-</footer> <!-- end-footer -->
-
+	<div class="article">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquam aperiam cum ipsum magni minus nemo nostrum omnis quibusdam sint.</div>
+	<div class="article">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquam aperiam cum ipsum magni minus nemo nostrum omnis quibusdam sint.</div>
+	<div class="article">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquam aperiam cum ipsum magni minus nemo nostrum omnis quibusdam sint.</div>
+</div>
+<div class="footer">
+	@Copyright Roger Inc.
+</div>
 </body>
 </html>

@@ -7,49 +7,47 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-
 <style>
-	html {
-		font-family: Sans-Serif;
-	}
+    html {
+        font-family: Times New Roman;
+    }
 
-	form {
-		display: table;
-	}
+    form {
+        display: table;
+    }
 
-	form div {
-		display: table-row;
-	}
+    form div {
+        display: table-row;
+    }
 
-	form label, form input {
-		display: table-cell;
-	}
+    form label, form input {
+        display: table-cell;
+    }
 
-	form label {
-		text-align: right;
-	}
+    form label {
+        text-align: right;
+    }
 
 </style>
-
 <body>
 
-<h1>Personal information</h1>
-
+<h1>Dades Personals</h1>
 <form action="">
-	<div>
-		<label for="name">First name: </label>
-		<input type="text" name="name">
-	</div>
+    <div>
+        <label for="name">First Name:</label>
+        <input type="text" name="name">
+    </div>
 
-	<div>
-		<label for="lastName">Last name: </label>
-		<input type="text" name="lastName">
-	</div>
+    <div>
+        <label for="lastname">Last Name:</label>
+        <input type="text" name="lastname">
+    </div>
 
-	<div>
-		<label for="age">Age: </label>
-		<input type="text" name="age">
-	</div>
+    <div>
+        <label for="age">Age:</label>
+        <input type="text" name="age">
+    </div>
 </form>
+
 </body>
 </html>

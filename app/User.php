@@ -1,29 +1,21 @@
 <?php
 
-<<<<<<< HEAD
-namespace App\TodosBackend;
-=======
-namespace PaoloDavila\TodosBackend;
->>>>>>> 5f032173417b209584ba0481b77168133212ef43
+namespace Cristian\TodosBackend;
 
+use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
-<<<<<<< HEAD
-use App\TodosBackend\Notifications\ResetPassword;
-=======
-use PaoloDavila\TodosBackend\Notifications\ResetPassword;
->>>>>>> 5f032173417b209584ba0481b77168133212ef43
 use Spatie\Permission\Traits\HasRoles;
 
 /**
  * Class User.
- * 
+ *
  * @package App
  */
 class User extends Authenticatable
 {
-    use HasApiTokens,Notifiable, HasRoles;
+    use HasApiTokens, Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -31,7 +23,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','api_token'
+        'name', 'email', 'password', 'api_token'
     ];
 
     /**
@@ -40,7 +32,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token','api_token'
+        'password', 'remember_token', 'api_token'
     ];
 
     public static function findOrFail($id)
@@ -53,7 +45,7 @@ class User extends Authenticatable
     }
 
     /**
-     * A user can have many messages
+     * A user can have many messages.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -63,22 +55,28 @@ class User extends Authenticatable
     }
 
     /**
-     * A user can have many GcmTokens
+     * A user can have many GCM tokens.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function gcmTokens()
     {
-        return 'AAAA149XRmY:APA91bHMDQLNCXoo7K0MhSeRnk3v0zy32dilwPaIRWb29LAzYc9C9WeGY4AlAha85BO252WfecSoEzvMjNRFdCRw6sHXdHN6TQe3F1hqkVEqKUFzJXw6XhPmbQPENy5BT4B_ACCOn4Nr';
-    }
-
-    public function routeNotificationForGcm()
-    {
-        return $this->gcmTokens();
+        return $this->hasMany(GcmToken::class);
     }
 
     /**
-     * @param string $token
+     * @return mixed
+     */
+    public function routeNotificationForGcm()
+    {
+        return $this->gcmTokens->pluck('registration_id')->toArray();
+    }
+
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string $token
+     * @return void
      */
     public function sendPasswordResetNotification($token)
     {

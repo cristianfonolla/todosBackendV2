@@ -1,18 +1,10 @@
 <?php
 
-<<<<<<< HEAD
-namespace App\TodosBackend\Http\Controllers;
+namespace Cristian\TodosBackend\Http\Controllers;
 
-use App\TodosBackend\Repositories\UserRepository;
-use App\TodosBackend\Transformers\UserTransformer;
-use App\TodosBackend\User;
-=======
-namespace PaoloDavila\TodosBackend\Http\Controllers;
-
-use PaoloDavila\TodosBackend\Repositories\UserRepository;
-use PaoloDavila\TodosBackend\Transformers\UserTransformer;
-use PaoloDavila\TodosBackend\User;
->>>>>>> 5f032173417b209584ba0481b77168133212ef43
+use Cristian\TodosBackend\Repositories\UserRepository;
+use Cristian\TodosBackend\Transformers\UserTransformer;
+use Cristian\TodosBackend\User;
 use Illuminate\Http\Request;
 
 
@@ -42,7 +34,7 @@ class UsersController extends Controller
     {
         $users = $this->repository->paginate(15);
 
-        return $this->generatePaginatedResponse($users, ['propietari' => 'Paolo Davila']);
+        return $this->generatePaginatedResponse($users, ['propietari' => 'Cristian Fonolla']);
     }
 
     /**

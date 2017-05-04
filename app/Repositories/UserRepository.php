@@ -1,16 +1,9 @@
 <?php
 
-<<<<<<< HEAD
-namespace App\TodosBackend\Repositories;
+namespace Cristian\TodosBackend\Repositories;
 
-use \App\TodosBackend\Repositories\Contracts\Repository;
-use App\TodosBackend\User;
-=======
-namespace PaoloDavila\TodosBackend\Repositories;
-
-use \PaoloDavila\TodosBackend\Repositories\Contracts\Repository;
-use PaoloDavila\TodosBackend\User;
->>>>>>> 5f032173417b209584ba0481b77168133212ef43
+use \Cristian\TodosBackend\Repositories\Contracts\Repository;
+use Cristian\TodosBackend\User;
 
 class UserRepository implements Repository
 {

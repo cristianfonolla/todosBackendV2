@@ -1,10 +1,6 @@
 <?php
 
-<<<<<<< HEAD
-namespace App\TodosBackend\Http\Middleware;
-=======
-namespace PaoloDavila\TodosBackend\Http\Middleware;
->>>>>>> 5f032173417b209584ba0481b77168133212ef43
+namespace Cristian\TodosBackend\Http\Middleware;
 
 use Illuminate\Cookie\Middleware\EncryptCookies as BaseEncrypter;
 

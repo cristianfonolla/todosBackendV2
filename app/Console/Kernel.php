@@ -1,10 +1,6 @@
 <?php
 
-<<<<<<< HEAD
-namespace App\TodosBackend\Console;
-=======
-namespace PaoloDavila\TodosBackend\Console;
->>>>>>> 5f032173417b209584ba0481b77168133212ef43
+namespace Cristian\TodosBackend\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;

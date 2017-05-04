@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-
 <style>
     body {
         width: 90%;
@@ -17,12 +16,12 @@
 
     p {
         line-height: 1.5;
-        word-spacing: 0.1em;
+        word-spacing: 1em;
     }
-
+    
     img {
         float: left;
-        margin-right: 20px;
+        margin-right: 30px;
     }
 
     .clearfix {
@@ -30,22 +29,14 @@
     }
 
 </style>
-
 <body>
-    <h1>Simple float example</h1>
-
+    <h1>Simple Float Example</h1>
     <div class="clearfix">
-        <img src="http://lorempixel.com/200/200/cats" alt="Image lorem">
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi dolorum hic itaque nobis odit officia
-            reprehenderit, sed sit! Atque delectus dolore doloribus enim, esse nisi voluptate voluptatibus? Architecto
-            doloribus, officia!</p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consectetur ea et eveniet harum ipsam laborum
-            numquam odio, officiis omnis optio provident quis recusandae rerum sunt, suscipit tempora vel vero?</p>
+        <img src="http://lorempixel.com/200/200/" alt="Image lorem">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, tempore?</p>
     </div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, tempore?</p>
 
-    <h1>Texto que salta!!!</h1>
-
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, tempore?</p>
 </body>
 </html>

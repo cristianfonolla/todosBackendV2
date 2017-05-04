@@ -1,10 +1,6 @@
 <?php
 
-<<<<<<< HEAD
-namespace App\TodosBackend\Providers;
-=======
-namespace PaoloDavila\TodosBackend\Providers;
->>>>>>> 5f032173417b209584ba0481b77168133212ef43
+namespace Cristian\TodosBackend\Providers;
 
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
@@ -17,13 +13,8 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-<<<<<<< HEAD
-        'App\TodosBackend\Events\Register' => [
-            'App\TodosBackend\Listeners\UserRegister',
-=======
-        'PaoloDavila\TodosBackend\Events\Register' => [
-            'PaoloDavila\TodosBackend\Listeners\UserRegister',
->>>>>>> 5f032173417b209584ba0481b77168133212ef43
+        'Illuminate\Auth\Events\Registered' => [
+            'Cristian\TodosBackend\Listeners\UserRegistered',
         ],
     ];
 

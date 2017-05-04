@@ -1,53 +1,34 @@
 <?php
 
-<<<<<<< HEAD
-namespace App\TodosBackend\Events;
-=======
-namespace PaoloDavila\TodosBackend\Events;
->>>>>>> 5f032173417b209584ba0481b77168133212ef43
+namespace Cristian\TodosBackend\Events;
 
+use Cristian\TodosBackend\Message;
+use Cristian\TodosBackend\User;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Notifications\Notification;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Broadcasting\PrivateChannel;
-use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use NotificationChannels\Gcm\GcmChannel;
 use NotificationChannels\Gcm\GcmMessage;
-<<<<<<< HEAD
-use App\TodosBackend\GcmToken;
-use App\TodosBackend\User;
 
-/**
- * Class MessageSent
- * @package App\TodosBackend\Events
-=======
-use PaoloDavila\TodosBackend\GcmToken;
-use PaoloDavila\TodosBackend\User;
-
-/**
- * Class MessageSent
- * @package PaoloDavila\TodosBackend\Events
->>>>>>> 5f032173417b209584ba0481b77168133212ef43
- */
 class MessageSent extends Notification implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-
     public $user;
-    public $token;
+    public $message;
 
     /**
-     * Create a new event instance.
+     * MessageSent constructor.
      *
-     * @return void
+     * @param $user
+     * @param $message
      */
-    public function __construct(User $user, GcmToken $token)
+    public function __construct(User $user, Message $message)
     {
         $this->user = $user;
-        $this->token = $token;
+        $this->message = $message;
     }
 
     /**
@@ -57,13 +38,11 @@ class MessageSent extends Notification implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('msg');
+        return new Channel('chat');
     }
 
     /**
-     * Get the notification's delivery channels.
-     *
-     * @param  mixed  $notifiable
+     * @param $notifiable
      * @return array
      */
     public function via($notifiable)
@@ -73,7 +52,7 @@ class MessageSent extends Notification implements ShouldBroadcast
 
     /**
      * @param $notifiable
-     * @return $this
+     * @return mixed
      */
     public function toGcm($notifiable)
     {

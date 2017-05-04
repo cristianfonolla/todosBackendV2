@@ -1,10 +1,6 @@
 <?php
 
-<<<<<<< HEAD
-namespace App\TodosBackend\Providers;
-=======
-namespace PaoloDavila\TodosBackend\Providers;
->>>>>>> 5f032173417b209584ba0481b77168133212ef43
+namespace Cristian\TodosBackend\Providers;
 
 use Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -14,11 +10,7 @@ use Route;
 /**
  * Class AuthServiceProvider.
  *
-<<<<<<< HEAD
- * @package App\TodosBackend\Providers
-=======
- * @package PaoloDavila\TodosBackend\Providers
->>>>>>> 5f032173417b209584ba0481b77168133212ef43
+ * @package Cristian\TodosBackend\Providers
  */
 class AuthServiceProvider extends ServiceProvider
 {
@@ -28,13 +20,8 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-<<<<<<< HEAD
-        'App\TodosBackend\Task' => 'App\TodosBackend\Policies\TaskPolicy',
-//        'App\TodosBackend\User' => 'App\TodosBackend\Policies\UserPolicy',
-=======
-        'PaoloDavila\TodosBackend\Task' => 'PaoloDavila\TodosBackend\Policies\TaskPolicy',
-//        'PaoloDavila\TodosBackend\User' => 'PaoloDavila\TodosBackend\Policies\UserPolicy',
->>>>>>> 5f032173417b209584ba0481b77168133212ef43
+        'Cristian\TodosBackend\Task' => 'Cristian\TodosBackend\Policies\TaskPolicy',
+        //'Cristian\TodosBackend\User'
     ];
 
     /**
@@ -58,15 +45,40 @@ class AuthServiceProvider extends ServiceProvider
     protected function defineGates()
     {
         Gate::define('gate-name',function() {
+
         });
 
-        Gate::define('impossible-gate',function() {
-            return false; //No autoritzat
+        Gate::define('impossible-gate', function () {
+            return false; //no autoritzat
         });
 
-        Gate::define('easy-gate',function() {
-            return true; //Autoritzat
+        Gate::define('easy-gate', function () {
+            return true; //autoritzat
         });
-
+//
+//        Gate::define('update-task', function ($user, $post) {
+//            return $user->id == $post->user_id;
+//        });
+//
+//
+//        Gate::define('update-task1', function ($user) {
+//            return $user->isAdmin();
+//        });
+//
+////        Gate::define('update-task2', function ($user) {
+////            if ($user->isAdmin()) return true;
+////
+////        });
+//
+//        Gate::define('update-task3', function ($user, $task) {
+//            if ($user->isAdmin()) return true;
+//            if ($user->hasRole('editor')) return true;
+//
+//            return $user->id == $task->user_id;
+//        });
+//
+//        Gate::define('show-tasks', function ($user) {
+//            return false;
+//        });
     }
 }

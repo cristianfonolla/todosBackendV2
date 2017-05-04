@@ -1,42 +1,34 @@
 <?php
 
-<<<<<<< HEAD
-namespace App\TodosBackend\Events;
-=======
-namespace PaoloDavila\TodosBackend\Events;
->>>>>>> 5f032173417b209584ba0481b77168133212ef43
+namespace Cristian\TodosBackend\Events;
 
+use Cristian\TodosBackend\GcmToken;
+use Cristian\TodosBackend\User;
 use Illuminate\Broadcasting\Channel;
+use Illuminate\Notifications\Notification;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Broadcasting\PrivateChannel;
-use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-<<<<<<< HEAD
-use App\TodosBackend\GcmToken;
-use App\TodosBackend\User;
-=======
-use PaoloDavila\TodosBackend\GcmToken;
-use PaoloDavila\TodosBackend\User;
->>>>>>> 5f032173417b209584ba0481b77168133212ef43
 
-class GcmTokenCreated extends \Notification implements ShouldBroadcast
+class GcmTokenCreated extends Notification implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $user;
+
     public $token;
 
     /**
-     * Create a new event instance.
+     * GcmTokenCreated constructor.
      *
-     * @return void
+     * @param $user
+     * @param $token
      */
     public function __construct(User $user, GcmToken $token)
     {
         $this->user = $user;
-        $this->token = $token;
+        $this->message = $token;
     }
 
     /**
@@ -46,6 +38,6 @@ class GcmTokenCreated extends \Notification implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('gcm');
+        return new Channel('todo');
     }
 }

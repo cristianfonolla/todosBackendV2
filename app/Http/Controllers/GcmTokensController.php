@@ -1,22 +1,16 @@
 <?php
 
-<<<<<<< HEAD
-namespace App\TodosBackend\Http\Controllers;
-=======
-namespace PaoloDavila\TodosBackend\Http\Controllers;
->>>>>>> 5f032173417b209584ba0481b77168133212ef43
+namespace Cristian\TodosBackend\Http\Controllers;
 
+use Cristian\TodosBackend\Events\GcmTokenCreated;
 use Auth;
 use Illuminate\Http\Request;
+use Cristian\TodosBackend\Http\Controllers\TodosBaseController;
 
 /**
- * Class GcmTokensController
+ * Class GcmTokensController.
  *
-<<<<<<< HEAD
- * @package App\TodosBackend\Http\Controllers
-=======
- * @package PaoloDavila\TodosBackend\Http\Controllers
->>>>>>> 5f032173417b209584ba0481b77168133212ef43
+ * @package Cristian\TodosBackend\Http\Controllers
  */
 class GcmTokensController extends TodosBaseController
 {
@@ -29,9 +23,8 @@ class GcmTokensController extends TodosBaseController
         $token = $user->gcmTokens()->firstOrCreate([
             'registration_id' => $request->input('registration_id')
         ]);
-
         //Broadcast
-        broadcast(new GcmTokenCreated($user,$token))->toOthers();
+        broadcast(new GcmTokenCreated($user, $token))->toOthers();
         return ['status' => 'Token saved!'];
     }
 }

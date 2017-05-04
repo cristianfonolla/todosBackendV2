@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
 
@@ -18,5 +17,4 @@ class PermissionSeeder extends Seeder
         Permission::create(['name' => 'update-user']);
         Permission::create(['name' => 'delete-user']);
     }
-
 }

@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Laravel',
+    'name' => 'Todos Backend Cristian',
 
     /*
     |--------------------------------------------------------------------------
@@ -167,30 +167,23 @@ return [
          * Package Service Providers...
          */
         Laravel\Passport\PassportServiceProvider::class,
-        Laravel\Tinker\TinkerServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
-        Spatie\Menu\Laravel\MenuServiceProvider::class,
+        Barryvdh\Cors\ServiceProvider::class,
         NotificationChannels\Gcm\GcmServiceProvider::class,
         NotificationChannels\OneSignal\OneSignalServiceProvider::class,
         NotificationChannels\Telegram\TelegramServiceProvider::class,
+
+
         //
 
         /*
          * Application Service Providers...
          */
-<<<<<<< HEAD
-        App\TodosBackend\Providers\AppServiceProvider::class,
-        App\TodosBackend\Providers\AuthServiceProvider::class,
-        // App\TodosBackend\Providers\BroadcastServiceProvider::class,
-        App\TodosBackend\Providers\EventServiceProvider::class,
-        App\TodosBackend\Providers\RouteServiceProvider::class,
-=======
-        PaoloDavila\TodosBackend\Providers\AppServiceProvider::class,
-        PaoloDavila\TodosBackend\Providers\AuthServiceProvider::class,
-        // PaoloDavila\TodosBackend\Providers\BroadcastServiceProvider::class,
-        PaoloDavila\TodosBackend\Providers\EventServiceProvider::class,
-        PaoloDavila\TodosBackend\Providers\RouteServiceProvider::class,
->>>>>>> 5f032173417b209584ba0481b77168133212ef43
+        Cristian\TodosBackend\Providers\AppServiceProvider::class,
+        Cristian\TodosBackend\Providers\AuthServiceProvider::class,
+        // Cristian\TodosBackend\Providers\BroadcastServiceProvider::class,
+        Cristian\TodosBackend\Providers\EventServiceProvider::class,
+        Cristian\TodosBackend\Providers\RouteServiceProvider::class,
 
         /*
          * Acacha Llum Service Providers...
@@ -209,15 +202,9 @@ return [
         Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
-        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
-        Barryvdh\Debugbar\ServiceProvider::class,
-        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
-        Barryvdh\Debugbar\ServiceProvider::class,
-        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
-        Barryvdh\Debugbar\ServiceProvider::class,
-        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
-        Barryvdh\Debugbar\ServiceProvider::class,
-        Barryvdh\Cors\ServiceProvider::class,
+        Spatie\Menu\Laravel\MenuServiceProvider::class,
+        Acacha\LaravelSocial\Providers\LaravelSocialServiceProvider::class,
+        Acacha\LaravelSocial\Providers\LaravelSocialServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         #llum_providers
@@ -284,10 +271,10 @@ return [
          * See: https://github.com/acacha/llum
          */
         'AdminLTE' => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class,
-        'Menu'     => Spatie\Menu\Laravel\Menu::class,
-        'Link'     => Spatie\Menu\Laravel\Link::class,
-        'Html'     => Spatie\Menu\Laravel\Html::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'Menu' => Spatie\Menu\Laravel\MenuFacade::class,
+        'Link' => Spatie\Menu\Laravel\Link::class,
+        'Html' => Spatie\Menu\Laravel\Html::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         #llum_aliases
 

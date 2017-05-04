@@ -1,29 +1,16 @@
 <?php
 
-<<<<<<< HEAD
-namespace App\TodosBackend\Http\Controllers;
+namespace Cristian\TodosBackend\Http\Controllers;
 
-use App\TodosBackend\Repositories\UserTasksRepository;
-use App\TodosBackend\Transformers\TaskTransformer;
-use App\TodosBackend\Task;
-use App\TodosBackend\User;
-=======
-namespace PaoloDavila\TodosBackend\Http\Controllers;
-
-use PaoloDavila\TodosBackend\Repositories\UserTasksRepository;
-use PaoloDavila\TodosBackend\Transformers\TaskTransformer;
-use PaoloDavila\TodosBackend\Task;
-use PaoloDavila\TodosBackend\User;
->>>>>>> 5f032173417b209584ba0481b77168133212ef43
+use Cristian\TodosBackend\Repositories\UserTasksRepository;
+use Cristian\TodosBackend\Transformers\TaskTransformer;
+use Cristian\TodosBackend\Task;
+use Cristian\TodosBackend\User;
 use Illuminate\Http\Request;
 
 /**
  * Class UserTasksController
-<<<<<<< HEAD
- * @package App\TodosBackend\Http\Controllers
-=======
- * @package PaoloDavila\TodosBackend\Http\Controllers
->>>>>>> 5f032173417b209584ba0481b77168133212ef43
+ * @package Cristian\TodosBackend\Http\Controllers
  */
 class UserTasksController extends Controller
 {
@@ -46,7 +33,7 @@ class UserTasksController extends Controller
 
         $tasks = $user->tasks()->paginate(15);
 
-        return $this->generatePaginatedResponse($tasks, ['propietari' => 'Paolo Davila']);
+        return $this->generatePaginatedResponse($tasks, ['propietari' => 'Cristian Fonolla']);
     }
 
     /**

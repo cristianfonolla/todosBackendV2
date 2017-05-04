@@ -1,16 +1,9 @@
 <?php
 
-<<<<<<< HEAD
-namespace App\TodosBackend\Providers;
+namespace Cristian\TodosBackend\Providers;
 
-use App\TodosBackend\User;
-=======
-namespace PaoloDavila\TodosBackend\Providers;
-
-use PaoloDavila\TodosBackend\User;
->>>>>>> 5f032173417b209584ba0481b77168133212ef43
+use Cristian\TodosBackend\User;
 use Illuminate\Support\ServiceProvider;
-use Spatie\Permission\Models\Role;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -21,9 +14,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-      User::created(function ($user) {
-        $user->assignRole('admin');
-      });
+//        User::created(function ($user) {
+//            $user->assignRole('admin');
+//        });
     }
 
     /**

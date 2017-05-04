@@ -20,7 +20,6 @@
             'echoServerURL' => env('LARAVEL_ECHO_SERVER_URL','http://localhost:6001'),
         ]) !!};
     </script>
-
     <script>
         //See https://laracasts.com/discuss/channels/vue/use-trans-in-vuejs
         window.trans = @php

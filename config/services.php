@@ -30,11 +30,7 @@ return [
     ],
 
     'stripe' => [
-<<<<<<< HEAD
-        'model'  => App\TodosBackend\User::class,
-=======
-        'model'  => PaoloDavila\TodosBackend\User::class,
->>>>>>> 5f032173417b209584ba0481b77168133212ef43
+        'model'  => Cristian\TodosBackend\User::class,
         'key'    => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
@@ -43,9 +39,8 @@ return [
         'app_id' => env('ONESIGNAL_APP_ID'),
         'rest_api_key' => env('ONESIGNAL_REST_API_KEY')
     ],
-
     'telegram-bot-api' => [
-        'token' => env('TELEGRAM_BOT_TOKEN','YOUR BOT TOKEN HERE')
+        'token' => env('TELEGRAM_BOT_TOKEN', 'YOUR BOT TOKEN HERE')
     ],
 
     /*
@@ -55,6 +50,30 @@ return [
     |
     */
     #llum_services
+
+    'github' => [
+        'client_id' => env('GITHUB_OAUTH_APP_ID'),
+        'client_secret' => env('GITHUB_OAUTH_APP_SECRET'),
+        'redirect' => env('GITHUB_OAUTH_APP_REDIRECT_URL'),
+    ],
+
+    'twitter' => [
+        'client_id' => env('TWITTER_OAUTH_APP_ID'),
+        'client_secret' => env('TWITTER_OAUTH_APP_SECRET'),
+        'redirect' => env('TWITTER_OAUTH_APP_REDIRECT_URL'),
+    ],
+
+    'google' => [
+        'client_id' => env('GOOGLE_OAUTH_APP_ID'),
+        'client_secret' => env('GOOGLE_OAUTH_APP_SECRET'),
+        'redirect' => env('GOOGLE_OAUTH_APP_REDIRECT_URL'),
+    ],
+
+    'facebook' => [
+        'client_id' => env('FACEBOOK_OAUTH_APP_ID'),
+        'client_secret' => env('FACEBOOK_OAUTH_APP_SECRET'),
+        'redirect' => env('FACEBOOK_OAUTH_APP_REDIRECT_URL'),
+    ],
 
 
     /*

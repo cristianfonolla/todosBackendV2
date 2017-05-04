@@ -12,11 +12,7 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-<<<<<<< HEAD
-$factory->define(App\TodosBackend\User::class, function (Faker\Generator $faker) {
-=======
-$factory->define(PaoloDavila\TodosBackend\User::class, function (Faker\Generator $faker) {
->>>>>>> 5f032173417b209584ba0481b77168133212ef43
+$factory->define(Cristian\TodosBackend\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [

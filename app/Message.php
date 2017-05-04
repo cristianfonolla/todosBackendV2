@@ -1,16 +1,19 @@
 <?php
 
-<<<<<<< HEAD
-namespace App\TodosBackend;
-=======
-namespace PaoloDavila\TodosBackend;
->>>>>>> 5f032173417b209584ba0481b77168133212ef43
+namespace Cristian\TodosBackend;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Message.
+ *
+ * @package App
+ */
 class Message extends Model
 {
     /**
+     * The attributes that are mass assignable.
+     *
      * @var array
      */
     protected $fillable = [

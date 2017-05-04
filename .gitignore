@@ -7,6 +7,3 @@ Homestead.json
 Homestead.yaml
 .env
 build
-/_ide_helper.php
-npm-debug.log
-composer.lock

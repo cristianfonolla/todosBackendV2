@@ -9,33 +9,16 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
     <meta name="description" content="Adminlte-laravel - {{ trans('adminlte_lang::message.landingdescription') }} ">
     <meta name="author" content="Sergi Tur Badenas - acacha.org">
 
-    <meta property="og:title" content="Adminlte-laravel" />
-    <meta property="og:type" content="website" />
-    <meta property="og:description" content="Adminlte-laravel - {{ trans('adminlte_lang::message.landingdescription') }}" />
-    <meta property="og:url" content="http://demo.adminlte.acacha.org/" />
-    <meta property="og:image" content="http://demo.adminlte.acacha.org/img/AcachaAdminLTE.png" />
-    <meta property="og:image" content="http://demo.adminlte.acacha.org/img/AcachaAdminLTE600x600.png" />
-    <meta property="og:image" content="http://demo.adminlte.acacha.org/img/AcachaAdminLTE600x314.png" />
-    <meta property="og:sitename" content="demo.adminlte.acacha.org" />
-    <meta property="og:url" content="http://demo.adminlte.acacha.org" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@acachawiki" />
-    <meta name="twitter:creator" content="@acacha1" />
-
-    <title>{{ trans('adminlte_lang::message.landingdescriptionpratt') }}</title>
+    <title>TODOS BACKEND Cristian</title>
 
     <!-- Custom styles for this template -->
-    <link href="{{ asset('/css/all.css') }}" rel="stylesheet">
-    <link href="{{ asset('/css/main.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/all-landing.css') }}" rel="stylesheet">
 
     <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
 
 </head>
-<script>
-  window.Laravel = {"csrfToken":"nUXGi8tqDufvUEiBz0gpWKLH6xZh9szE5q699x1W"};
-</script>
+
 <body data-spy="scroll" data-offset="0" data-target="#navigation">
 
 <div id="app">
@@ -75,8 +58,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
         <div class="container">
             <div class="row centered">
                 <div class="col-lg-12">
-                    <h1>Cristian<b><a href="https://github.com/acacha/adminlte-
-                    laravel">TodosBackend</a></b></h1>
+                    <h1>Cristian<b><a href="https://github.com/acacha/adminlte-laravel">TODOS BACKEND</a></b></h1>
                     <h3>A <a href="https://laravel.com/">Laravel</a> {{ trans('adminlte_lang::message.laravelpackage') }}
                         scaffolding/boilerplate {{ trans('adminlte_lang::message.to') }} <a href="https://almsaeedstudio.com/preview">AdminLTE</a> {{ trans('adminlte_lang::message.templatewith') }}
                         <a href="http://getbootstrap.com/">Bootstrap</a> 3.0 {{ trans('adminlte_lang::message.and') }} <a href="http://blacktie.co/demo/pratt/">Pratt</a> Landing page</h3>
@@ -284,7 +266,7 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
                 <br/>
                 AdminLTE {{ trans('adminlte_lang::message.createdby') }} Abdullah Almsaeed <a href="https://almsaeedstudio.com/">almsaeedstudio.com</a>
                 <br/>
-                Pratt Landing Page {{ trans('adminlte_lang::message.createdby') }} <a href="http://www.blacktie.co">BLACKTIE.CO</a>
+                 Pratt Landing Page {{ trans('adminlte_lang::message.createdby') }} <a href="http://www.blacktie.co">BLACKTIE.CO</a>
             </p>
 
         </div>
@@ -294,11 +276,12 @@ Landing page based on Pratt: http://blacktie.co/demo/pratt/
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="{{ asset('/js/app-landing.js') }}"></script>
+<script src="{{ asset('/js/app.js') }}"></script>
+<script src="{{ asset('/js/smoothscroll.js') }}"></script>
 <script>
-  $('.carousel').carousel({
-    interval: 3500
-  })
+    $('.carousel').carousel({
+        interval: 3500
+    })
 </script>
 </body>
 </html>

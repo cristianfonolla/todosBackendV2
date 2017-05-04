@@ -1,16 +1,10 @@
 <?php
 
-<<<<<<< HEAD
-use App\TodosBackend\Task;
+
+use Cristian\TodosBackend\Task;
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::group(['middleware' => 'can:show,App\TodosBackend\Task'], function () {
-=======
-use PaoloDavila\TodosBackend\Task;
-
-Route::group(['middleware' => 'auth'], function () {
-    Route::group(['middleware' => 'can:show,PaoloDavila\TodosBackend\Task'], function () {
->>>>>>> 5f032173417b209584ba0481b77168133212ef43
+    Route::group(['middleware' => 'can:show,Cristian\TodosBackend\Task'], function () {
         Route::get('/tasks', function () {
             $token = "TODO";
             $data = [
@@ -31,36 +25,30 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     Route::get('users', function () {
-<<<<<<< HEAD
-        dd(App\TodosBackend\User::paginate());
-=======
-        dd(PaoloDavila\TodosBackend\User::paginate());
->>>>>>> 5f032173417b209584ba0481b77168133212ef43
-    });
-
-    Route::get('/boxmodel', function () {
-        return view('boxmodel');
-    });
-
-    Route::get('/float', function () {
-        return view('float');
-    });
-
-    Route::get('/layoutfloat', function () {
-        return view('layoutfloat');
+        dd(Cristian\TodosBackend\User::paginate());
     });
 
     #adminlte_routes
-    Route::get('msg', 'MessagesController@index')->name('messages');
-    Route::post('msg', 'MessagesController@sendMessage');
+    Route::get('messages', 'MessagesController@index')->name('messages');
 
-    Route::get('messages', 'MessagesController@fetchMessage');
+    Route::post('messages', 'MessagesController@sendMessage');
+
+    Route::get('user/messages', 'MessagesController@fetchMessages');
 
     Route::get('bootstraplayout', 'BootstraplayoutController@index')->name('bootstraplayout');
 
     Route::get('flexboxlayout', 'FlexboxlayoutController@index')->name('flexboxlayout');
 
     Route::get('csstables', 'CsstablesController@index')->name('csstables');
+
+    Route::get('floatlayout', 'FloatlayoutController@index')->name('floatlayout');
+
+    Route::get('boxmodel', 'BoxmodelController@index')->name('boxmodel');
+
+    Route::get('/float', function () {
+        return view('float');
+    });
+
 
 });
 

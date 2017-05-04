@@ -1,136 +1,136 @@
-<template xmlns:v-on="http://www.w3.org/1999/xhtml">
+<template>
     <tr>
-        <td>{{index + from}}</td>
-        <td><span v-show="!editing" @dblclick="canviaNom(index,todo)">{{ todo.name }}</span>
-            <input type="text" v-model="todo.name" v-show="editing" @keyup.enter="canviaNom(index,todo)"
-                   v-todo-focus="editing" onfocus="this.select();"
-                   @keyup.esc="canceleditName(todo)">
-            <span @click="canviaNom(index,todo)"><i class="fa fa-fw fa-pencil-square " v-show="!editing"></i></span>
-            <span @click="canviaNom(index,todo)"><i class="fa fa-fw fa-check bg-green" v-show="editing"></i></span>
-            <span @click="canceleditName(todo)"><i class="fa fa-fw fa-close bg-red" v-show="editing"></i></span>
-        </td>
-        <td><div v-show="!editingPri" @dblclick="canviaVisiPrioritat(index,todo)">{{ todo.priority }}</div>
-            <input type="text" v-model="todo.priority" v-show="editingPri" @keyup.enter="canviaVisiPrioritat(index,todo)"
-                   v-todo-focus="editingPri" onfocus="this.select();"
-                   @keyup.esc="canceleditPri(todo)"></td>
-        <td><span v-if="todo.done">
-                                <input type="checkbox"
-                                       class="icheckbox_square-green"
-                                       checked=""
-                                       @click="modificaDone(index,todo)">
-                            </span>
-            <span v-else>
-                                <input type="checkbox" class="icheckbox_square-green" @click="modificaDone(index,todo)">
-                            </span>
-        </td>
+        <td>{{index + from }}</td>
         <td>
+            <div v-if="!editing" @dblclick="editTodo(page,todo.id)">
+                <span>{{todo.name}}</span>
+            </div>
+            <div v-else @keyup.esc="uneditTodo(page)" @keyup.enter="editTodo(page,todo.id)">
+                <input v-model="todo.name" size="60">
+                <div  style="float: right;">
+                    <button type="button" class="btn btn-success btn-flat btn-xs" @click="editTodo(page,todo.id)">
+                        <i class="fa fa-fw fa-check"></i>
+                    </button>
+                    <button type="button" class="btn btn-danger btn-flat btn-xs" @click="uneditTodo(page)">
+                        <i class="fa fa-fw fa-close"></i>
+                    </button>
+                </div>
+            </div>
+        </td>
+        <td align="center">
+            <div class="btn-group">
+                <button type="button" class="btn btn-default btn-flat">
+                    <span>{{todo.priority}}</span>
+                </button>
+                <button type="button" class="btn btn-default dropdown-toggle btn-flat" data-toggle="dropdown">
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li v-for="n in 10"><a href="#" @click="editTodoPriority(page,(n-1))">{{(n-1)}}</a></li>
+                </ul>
+            </div>
+        </td>
+        <td align="center">
+            <div v-if="todo.done">
+                <input type="checkbox" class="checkbox icheck" checked @click="editTodoDone(page,todo.done)">
+            </div>
+
+            <div v-else>
+                <input type="checkbox" class="checkbox icheck" @click="editTodoDone(page,todo.done)">
+            </div>
+        </td>
+        <td align="center">
             <div class="progress progress-xs">
                 <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
             </div>
         </td>
-        <td><span class="badge bg-red">55%</span></td>
-        <td>
+        <td align="center"><span class="badge bg-red">55%</span></td>
+        <td align="center">
+            <div class="btn-group">
+                <button type="button" class="btn btn-info btn-flat" @click="editTodo(page,todo.id)">
+                    <i class="fa fa-edit"></i>
+                </button>
 
-            <span class="btn btn-md bg-green" @click="edittodo(index,todo)">
-                <i class="fa fa-fw fa-pencil" ></i>
-            </span>
-            <button class="btn btn-md bg-red" v-on:click=" deletetodo(index,todo.id)"><i class="fa fa-trash-o"></i></button>
-
+                <button type="button" class="btn btn-danger btn-flat" @click="deleteTodo(todo.id)">
+                    <i class="fa fa-trash"></i>
+                </button>
+            </div>
         </td>
     </tr>
-
 </template>
-<style>
-
-</style>
 <script>
 
-    export default {
-        props: ['todo','index','from'],
+export default {
+    props: ['todo','index','from','fetchPage','page'],
 
-        data() {
-            return {
-                editing: false,
-                editingPri: false,
-                bufferedTodoname: null,
-                bufferedTodopri: 0 ,
-            }
-        },
-        created() {
-            console.log('Component created');
-        },
-        methods:{
-            hola : function() {
-                console.log("Hola");
-
-            },
-            canviaNom: function(index, todo) {
-                this.bufferedTodoname = todo.name;
-                this.editing = !this.editing;
-                if (!this.editing) this.modificaNom(index,todo);
-
-            },
-            modificaNom: function(index,todo){
-                this.updateApi(todo);
-                console.log(todo);
-            },
-            updateApi: function (todo){
-                this.$http.put('/api/v1/task/' + todo.id,{
-                    name : todo.name,
-                    priority : todo.priority,
-                    done : todo.done,
-                }).then((response) => {
-                    console.log(response);
-
-                }, (response) => {
-                    // error callback
-                    sweetAlert("Oops...", "Something went wrong!", "error");
-                    console.log(response);
-                });
-            },
-            canviaVisiPrioritat: function(index,todo) {
-                this.bufferedTodopri = todo.priority;
-                this.editingPri = !this.editingPri;
-                if (!this.editingPri) this.modificaPrioritat(index,todo);
-            },
-            modificaPrioritat: function(index,todo){
-                this.updateApi(todo);
-            },
-            modificaDone: function(index,todo){
-                todo.done = !todo.done;
-                this.updateApi(todo);
-            },
-            deletetodo: function(index,id){
-                this.$emit('todo-deleted', index, id);
-            },
-            canceleditName: function(todo){
-                todo.name = this.bufferedTodoname;
-                this.editing = false;
-            },
-            canceleditPri: function(todo){
-                todo.priority = this.bufferedTodopri;
-                this.editingPri = false;
-            },
-            edittodo: function (index,todo){
-                this.canviaVisiPrioritat(index,todo);
-                this.canviaNom(index,todo)
-            }
-        },
-        directives: {
-            'todo-focus': function (el, value) {
-                if (value) {
-                    el.focus()
-                }
-            }
+    data() {
+        return {
+            editing: false,
+            editingPriority: false,
         }
+    },
+    created() {
+        console.log('Component todolist created.');
+    },
+    methods: {
+        editTodo: function(pageNum) {
+            if (this.editing == true) {
+                this.editTodoToApi();
+                this.editing = false;
+                return this.fetchPage(pageNum);
+            }
+            this.editing = true;
+            return this.fetchPage(pageNum);
+        },
+        editTodoToApi: function(){
+            this.$http.put('/api/v1/task/' + this.todo.id, {
+                name: this.todo.name,
+            }).then((response) => {
+                console.log('Name of task ' + this.todo.id + ' updated succesfully! Now is known as \"' + this.todo.name + '\".');
+            }, (response) => {
+                sweetAlert("Oops...", "Something went wrong!", "error");
+                console.log(response);
+            });
+        },
+        editTodoPriority: function(pageNum,number) {
+            this.editTodoPriorityToApi(number);
+            return this.fetchPage(pageNum);
+        },
+        editTodoPriorityToApi: function(number) {
+            this.$http.put('/api/v1/task/' + this.todo.id,{
+                priority: number,
+            }).then((response) => {
+                console.log('Priority of task ' + this.todo.id + ' updated succesfully! Now has \"' + number + '\".');
+            }, (response) => {
+                sweetAlert("Oops...", "Something went wrong!", "error");
+                console.log(response);
+            });
+        },
+        editTodoDone: function(pageNum,doneStatus) {
+            doneStatus = this.todo.done = !this.todo.done;
+            this.editTodoDoneToApi(doneStatus);
+            return this.fetchPage(pageNum);
+        },
+        editTodoDoneToApi: function(doneStatus) {
+            this.$http.put('/api/v1/task/' + this.todo.id,{
+                done: doneStatus,
+            }).then((response) => {
+                console.log('Done status of task ' + this.todo.id + ' updated succesfully! Now has \"' + doneStatus + '\".');
+            }, (response) => {
+                sweetAlert("Oops...", "Something went wrong!", "error");
+                console.log(response);
+            });
+        },
+        uneditTodo: function(pageNum) {
+            this.editing = false;
+            this.editingPriority = false;
+            return this.fetchPage(pageNum);
+        },
+        deleteTodo: function(id) {
+            console.log('Deleting todo');
+            this.$emit('todo-deleted',id);
+        },
     }
+}
 
-    //    $(function () {
-    //            $('input').iCheck({
-    //                checkboxClass: 'icheckbox_square-green',
-    //                radioClass: 'iradio_square-green',
-    //                increaseArea: '20%' // optional
-    //            });
-    //        });
 </script>
-

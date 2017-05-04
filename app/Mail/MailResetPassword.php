@@ -1,14 +1,11 @@
 <?php
 
-<<<<<<< HEAD
-namespace App\TodosBackend\Mail;
-=======
-namespace PaoloDavila\TodosBackend\Mail;
->>>>>>> 5f032173417b209584ba0481b77168133212ef43
+namespace Cristian\TodosBackend\Mail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
 class MailResetPassword extends Mailable
 {
@@ -31,6 +28,6 @@ class MailResetPassword extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        //return $this->markdown('mails');
     }
 }

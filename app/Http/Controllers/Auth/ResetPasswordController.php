@@ -1,14 +1,8 @@
 <?php
 
-<<<<<<< HEAD
-namespace App\TodosBackend\Http\Controllers\Auth;
+namespace Cristian\TodosBackend\Http\Controllers\Auth;
 
-use App\TodosBackend\Http\Controllers\Controller;
-=======
-namespace PaoloDavila\TodosBackend\Http\Controllers\Auth;
-
-use PaoloDavila\TodosBackend\Http\Controllers\Controller;
->>>>>>> 5f032173417b209584ba0481b77168133212ef43
+use Cristian\TodosBackend\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
 
