@@ -55,7 +55,11 @@ class AcachaAdminLTELaravelTest extends TestCase
      */
     public function testLandingPageWithUserLogged()
     {
+<<<<<<< HEAD
         $user = factory(App\TodosBackend\User::class)->create();
+=======
+        $user = factory(PaoloDavila\TodosBackend\User::class)->create();
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
 
         $this->actingAs($user)
             ->visit('/')
@@ -83,7 +87,11 @@ class AcachaAdminLTELaravelTest extends TestCase
      */
     public function testLogin()
     {
+<<<<<<< HEAD
         $user = factory(App\TodosBackend\User::class)->create(['password' => Hash::make('passw0RD')]);
+=======
+        $user = factory(PaoloDavila\TodosBackend\User::class)->create(['password' => Hash::make('passw0RD')]);
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
 
         $this->visit('/login')
             ->type($user->email, 'email')
@@ -148,7 +156,11 @@ class AcachaAdminLTELaravelTest extends TestCase
      */
     public function testHomePageForAuthenticatedUsers()
     {
+<<<<<<< HEAD
         $user = factory(App\TodosBackend\User::class)->create();
+=======
+        $user = factory(PaoloDavila\TodosBackend\User::class)->create();
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
 
         $this->actingAs($user)
             ->visit('/home')
@@ -162,7 +174,11 @@ class AcachaAdminLTELaravelTest extends TestCase
      */
     public function testLogout()
     {
+<<<<<<< HEAD
         $user = factory(App\TodosBackend\User::class)->create();
+=======
+        $user = factory(PaoloDavila\TodosBackend\User::class)->create();
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
 
         $form = $this->actingAs($user)->visit('/home')->getForm('logout');
 
@@ -224,7 +240,11 @@ class AcachaAdminLTELaravelTest extends TestCase
      */
     public function testSendPasswordReset()
     {
+<<<<<<< HEAD
         $user = factory(App\TodosBackend\User::class)->create();
+=======
+        $user = factory(PaoloDavila\TodosBackend\User::class)->create();
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
 
         $this->visit('password/reset')
             ->type($user->email, 'email')

@@ -34,7 +34,11 @@ class TasksApiTest extends TestCase
      */
     protected function seedDatabaseWithTasks($numberOfTasks = self::DEFAULT_NUMBER_OF_TASKS)
     {
+<<<<<<< HEAD
         factory(App\TodosBackend\Task::class, $numberOfTasks)->create();
+=======
+        factory(PaoloDavila\TodosBackend\Task::class, $numberOfTasks)->create();
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
     }
 
     /**
@@ -44,7 +48,11 @@ class TasksApiTest extends TestCase
      */
     protected function createTask()
     {
+<<<<<<< HEAD
         return factory(App\TodosBackend\Task::class)->make();
+=======
+        return factory(PaoloDavila\TodosBackend\Task::class)->make();
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
     }
 
     /**
@@ -71,7 +79,11 @@ class TasksApiTest extends TestCase
      */
     protected function createAndPersistTask()
     {
+<<<<<<< HEAD
         return factory(App\TodosBackend\Task::class)->create();
+=======
+        return factory(PaoloDavila\TodosBackend\Task::class)->create();
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
     }
 
     public function userNotAuthenticated() {
@@ -83,7 +95,11 @@ class TasksApiTest extends TestCase
 
     protected function login()
     {
+<<<<<<< HEAD
         $user = factory(App\TodosBackend\User::class)->create();
+=======
+        $user = factory(PaoloDavila\TodosBackend\User::class)->create();
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
         $this->actingAs($user,'api');
     }
     /**

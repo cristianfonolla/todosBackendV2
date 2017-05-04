@@ -1,10 +1,18 @@
 <?php
 
+<<<<<<< HEAD
 namespace App\TodosBackend\Http\Controllers;
 
 use App\TodosBackend\Repositories\UserRepository;
 use App\TodosBackend\Transformers\UserTransformer;
 use App\TodosBackend\User;
+=======
+namespace PaoloDavila\TodosBackend\Http\Controllers;
+
+use PaoloDavila\TodosBackend\Repositories\UserRepository;
+use PaoloDavila\TodosBackend\Transformers\UserTransformer;
+use PaoloDavila\TodosBackend\User;
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
 use Illuminate\Http\Request;
 
 

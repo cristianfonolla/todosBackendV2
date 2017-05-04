@@ -28,17 +28,29 @@ $app = new Illuminate\Foundation\Application(
 
 $app->singleton(
     Illuminate\Contracts\Http\Kernel::class,
+<<<<<<< HEAD
     App\TodosBackend\Http\Kernel::class
+=======
+    PaoloDavila\TodosBackend\Http\Kernel::class
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
 );
 
 $app->singleton(
     Illuminate\Contracts\Console\Kernel::class,
+<<<<<<< HEAD
     App\TodosBackend\Console\Kernel::class
+=======
+    PaoloDavila\TodosBackend\Console\Kernel::class
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
 );
 
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
+<<<<<<< HEAD
     App\TodosBackend\Exceptions\Handler::class
+=======
+    PaoloDavila\TodosBackend\Exceptions\Handler::class
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
 );
 
 /*

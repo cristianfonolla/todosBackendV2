@@ -1,16 +1,29 @@
 <?php
 
+<<<<<<< HEAD
 namespace App\TodosBackend\Http\Controllers;
 
 use App\TodosBackend\Repositories\UserTasksRepository;
 use App\TodosBackend\Transformers\TaskTransformer;
 use App\TodosBackend\Task;
 use App\TodosBackend\User;
+=======
+namespace PaoloDavila\TodosBackend\Http\Controllers;
+
+use PaoloDavila\TodosBackend\Repositories\UserTasksRepository;
+use PaoloDavila\TodosBackend\Transformers\TaskTransformer;
+use PaoloDavila\TodosBackend\Task;
+use PaoloDavila\TodosBackend\User;
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
 use Illuminate\Http\Request;
 
 /**
  * Class UserTasksController
+<<<<<<< HEAD
  * @package App\TodosBackend\Http\Controllers
+=======
+ * @package PaoloDavila\TodosBackend\Http\Controllers
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
  */
 class UserTasksController extends Controller
 {

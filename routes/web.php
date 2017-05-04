@@ -1,9 +1,16 @@
 <?php
 
+<<<<<<< HEAD
 use App\TodosBackend\Task;
 
 Route::group(['middleware' => 'auth'], function () {
     Route::group(['middleware' => 'can:show,App\TodosBackend\Task'], function () {
+=======
+use PaoloDavila\TodosBackend\Task;
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::group(['middleware' => 'can:show,PaoloDavila\TodosBackend\Task'], function () {
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
         Route::get('/tasks', function () {
             $token = "TODO";
             $data = [
@@ -24,7 +31,11 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     Route::get('users', function () {
+<<<<<<< HEAD
         dd(App\TodosBackend\User::paginate());
+=======
+        dd(PaoloDavila\TodosBackend\User::paginate());
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
     });
 
     Route::get('/boxmodel', function () {

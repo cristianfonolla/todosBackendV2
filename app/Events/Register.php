@@ -1,6 +1,10 @@
 <?php
 
+<<<<<<< HEAD
 namespace App\TodosBackend\Events;
+=======
+namespace PaoloDavila\TodosBackend\Events;
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
 
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
@@ -12,7 +16,11 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
 /**
  * Class Register
+<<<<<<< HEAD
  * @package App\TodosBackend\Events
+=======
+ * @package PaoloDavila\TodosBackend\Events
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
  */
 class Register
 {

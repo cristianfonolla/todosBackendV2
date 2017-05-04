@@ -1,6 +1,10 @@
 <?php
 
+<<<<<<< HEAD
 namespace App\TodosBackend\Providers;
+=======
+namespace PaoloDavila\TodosBackend\Providers;
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
 
 use Illuminate\Support\Facades\Broadcast;
 use Illuminate\Support\ServiceProvider;

@@ -1,6 +1,10 @@
 <?php
 
+<<<<<<< HEAD:app/Notifications/ResetPassword.php
 namespace App\TodosBackend\Notifications;
+=======
+namespace PaoloDavila\TodosBackend\Notifications;
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43:app/Notifications/ResetPassword.php
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
@@ -8,7 +12,11 @@ use Illuminate\Notifications\Messages\MailMessage;
 
 /**
  * Class ResetPassword
+<<<<<<< HEAD:app/Notifications/ResetPassword.php
  * @package App\TodosBackend\Notifications
+=======
+ * @package PaoloDavila\TodosBackend\Notifications
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43:app/Notifications/ResetPassword.php
  */
 class ResetPassword extends Notification
 {

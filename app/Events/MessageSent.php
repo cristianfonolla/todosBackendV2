@@ -1,6 +1,10 @@
 <?php
 
+<<<<<<< HEAD
 namespace App\TodosBackend\Events;
+=======
+namespace PaoloDavila\TodosBackend\Events;
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
 
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Notifications\Notification;
@@ -12,12 +16,21 @@ use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use NotificationChannels\Gcm\GcmChannel;
 use NotificationChannels\Gcm\GcmMessage;
+<<<<<<< HEAD
 use App\TodosBackend\GcmToken;
 use App\TodosBackend\User;
 
 /**
  * Class MessageSent
  * @package App\TodosBackend\Events
+=======
+use PaoloDavila\TodosBackend\GcmToken;
+use PaoloDavila\TodosBackend\User;
+
+/**
+ * Class MessageSent
+ * @package PaoloDavila\TodosBackend\Events
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
  */
 class MessageSent extends Notification implements ShouldBroadcast
 {

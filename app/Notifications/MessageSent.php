@@ -1,6 +1,10 @@
 <?php
 
+<<<<<<< HEAD
 namespace App\TodosBackend\Notifications;
+=======
+namespace PaoloDavila\TodosBackend\Notifications;
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
@@ -10,13 +14,22 @@ use Illuminate\Notifications\Messages\MailMessage;
 use NotificationChannels\Gcm\GcmChannel;
 use NotificationChannels\Gcm\GcmMessage;
 use NotificationChannels\OneSignal\OneSignalMessage;
+<<<<<<< HEAD
 use App\TodosBackend\Message;
 use App\TodosBackend\User;
+=======
+use PaoloDavila\TodosBackend\Message;
+use PaoloDavila\TodosBackend\User;
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
 use Storage;
 
 /**
  * Class MessageSent
+<<<<<<< HEAD
  * @package App\TodosBackend\Notifications
+=======
+ * @package PaoloDavila\TodosBackend\Notifications
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
  */
 class MessageSent extends Notification
 {

@@ -1,8 +1,14 @@
 <?php
 
+<<<<<<< HEAD
 namespace App\TodosBackend\Listeners;
 
 use App\TodosBackend\Events\Register;
+=======
+namespace PaoloDavila\TodosBackend\Listeners;
+
+use PaoloDavila\TodosBackend\Events\Register;
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 

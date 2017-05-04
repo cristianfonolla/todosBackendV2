@@ -178,11 +178,19 @@ return [
         /*
          * Application Service Providers...
          */
+<<<<<<< HEAD
         App\TodosBackend\Providers\AppServiceProvider::class,
         App\TodosBackend\Providers\AuthServiceProvider::class,
         // App\TodosBackend\Providers\BroadcastServiceProvider::class,
         App\TodosBackend\Providers\EventServiceProvider::class,
         App\TodosBackend\Providers\RouteServiceProvider::class,
+=======
+        PaoloDavila\TodosBackend\Providers\AppServiceProvider::class,
+        PaoloDavila\TodosBackend\Providers\AuthServiceProvider::class,
+        // PaoloDavila\TodosBackend\Providers\BroadcastServiceProvider::class,
+        PaoloDavila\TodosBackend\Providers\EventServiceProvider::class,
+        PaoloDavila\TodosBackend\Providers\RouteServiceProvider::class,
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
 
         /*
          * Acacha Llum Service Providers...

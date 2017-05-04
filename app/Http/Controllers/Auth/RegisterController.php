@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
 namespace App\TodosBackend\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
@@ -7,6 +8,15 @@ use App\TodosBackend\Events\Register;
 use App\TodosBackend\User;
 use Validator;
 use App\TodosBackend\Http\Controllers\Controller;
+=======
+namespace PaoloDavila\TodosBackend\Http\Controllers\Auth;
+
+use Illuminate\Http\Request;
+use PaoloDavila\TodosBackend\Events\Register;
+use PaoloDavila\TodosBackend\User;
+use Validator;
+use PaoloDavila\TodosBackend\Http\Controllers\Controller;
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 /**

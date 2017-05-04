@@ -48,7 +48,11 @@ class TasksControllerTest extends TestCase
 
     protected function login()
     {
+<<<<<<< HEAD
         $user = factory(\App\TodosBackend\User::class)->create();
+=======
+        $user = factory(\PaoloDavila\TodosBackend\User::class)->create();
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
         $this->actingAs($user);
         return $user;
     }
@@ -84,7 +88,11 @@ class TasksControllerTest extends TestCase
 //        $this->get('api/v1/tasks');
 //        $this->call('get','api/v1/tasks');
         //web
+<<<<<<< HEAD
         $user = factory(App\TodosBackend\User::class)->create();
+=======
+        $user = factory(PaoloDavila\TodosBackend\User::class)->create();
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
         $this->actingAs($user)->get('tasks1');
 
 //        dd($response);

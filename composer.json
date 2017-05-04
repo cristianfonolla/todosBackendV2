@@ -34,7 +34,11 @@
             "database"
         ],
         "psr-4": {
+<<<<<<< HEAD
             "App\\TodosBackend\\": "app/"
+=======
+            "PaoloDavila\\TodosBackend\\": "app/"
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
         }
     },
     "autoload-dev": {

@@ -1,6 +1,10 @@
 <?php
 
+<<<<<<< HEAD
 namespace App\TodosBackend\Http\Controllers;
+=======
+namespace PaoloDavila\TodosBackend\Http\Controllers;
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
 
 use Auth;
 use Illuminate\Http\Request;
@@ -8,7 +12,11 @@ use Illuminate\Http\Request;
 /**
  * Class GcmTokensController
  *
+<<<<<<< HEAD
  * @package App\TodosBackend\Http\Controllers
+=======
+ * @package PaoloDavila\TodosBackend\Http\Controllers
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
  */
 class GcmTokensController extends TodosBaseController
 {

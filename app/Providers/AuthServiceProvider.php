@@ -1,6 +1,10 @@
 <?php
 
+<<<<<<< HEAD
 namespace App\TodosBackend\Providers;
+=======
+namespace PaoloDavila\TodosBackend\Providers;
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
 
 use Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -10,7 +14,11 @@ use Route;
 /**
  * Class AuthServiceProvider.
  *
+<<<<<<< HEAD
  * @package App\TodosBackend\Providers
+=======
+ * @package PaoloDavila\TodosBackend\Providers
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
  */
 class AuthServiceProvider extends ServiceProvider
 {
@@ -20,8 +28,13 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
+<<<<<<< HEAD
         'App\TodosBackend\Task' => 'App\TodosBackend\Policies\TaskPolicy',
 //        'App\TodosBackend\User' => 'App\TodosBackend\Policies\UserPolicy',
+=======
+        'PaoloDavila\TodosBackend\Task' => 'PaoloDavila\TodosBackend\Policies\TaskPolicy',
+//        'PaoloDavila\TodosBackend\User' => 'PaoloDavila\TodosBackend\Policies\UserPolicy',
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
     ];
 
     /**

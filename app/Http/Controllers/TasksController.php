@@ -1,10 +1,18 @@
 <?php
 
+<<<<<<< HEAD
 namespace App\TodosBackend\Http\Controllers;
 
 use App\TodosBackend\Repositories\TaskRepository;
 use App\TodosBackend\Task;
 use App\TodosBackend\Transformers\TaskTransformer;
+=======
+namespace PaoloDavila\TodosBackend\Http\Controllers;
+
+use PaoloDavila\TodosBackend\Repositories\TaskRepository;
+use PaoloDavila\TodosBackend\Task;
+use PaoloDavila\TodosBackend\Transformers\TaskTransformer;
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
 use Auth;
 use Gate;
 use Illuminate\Http\Request;
@@ -12,7 +20,11 @@ use Illuminate\Http\Request;
 /**
  * Class TasksController
  *
+<<<<<<< HEAD
  * @package App\TodosBackend\Http\Controllers
+=======
+ * @package PaoloDavila\TodosBackend\Http\Controllers
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
  */
 class TasksController extends Controller
 {
@@ -44,11 +56,19 @@ class TasksController extends Controller
     public function index(Request $request)
     {
 //        $user = Auth::user();
+<<<<<<< HEAD
 //        if ($user->can('show', \App\TodosBackend\Task::class)) {
 //            //
 //        }
 
         //$this->authorize('show', \App\TodosBackend\Task::class);
+=======
+//        if ($user->can('show', \PaoloDavila\TodosBackend\Task::class)) {
+//            //
+//        }
+
+        //$this->authorize('show', \PaoloDavila\TodosBackend\Task::class);
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
 
         // The current user can update the post...
         $tasks = Task::paginate(15);

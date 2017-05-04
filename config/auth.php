@@ -72,7 +72,11 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
+<<<<<<< HEAD
             'model'  => App\TodosBackend\User::class,
+=======
+            'model'  => PaoloDavila\TodosBackend\User::class,
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
         ],
 
         // 'users' => [

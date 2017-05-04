@@ -18505,7 +18505,11 @@ window.io = __WEBPACK_IMPORTED_MODULE_1_socket_io_client___default.a;
 window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default.a({
   broadcaster: 'socket.io',
   host: window.Laravel.echoServerURL,
+<<<<<<< HEAD
   namespace: 'App.TodosBackend.Events'
+=======
+  namespace: 'PaoloDavila.TodosBackend.Events'
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
 });
 
 /***/ }),

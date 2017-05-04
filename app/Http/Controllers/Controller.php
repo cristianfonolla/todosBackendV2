@@ -1,8 +1,14 @@
 <?php
 
+<<<<<<< HEAD
 namespace App\TodosBackend\Http\Controllers;
 
 use App\TodosBackend\Transformers\Contracts\Transformer;
+=======
+namespace PaoloDavila\TodosBackend\Http\Controllers;
+
+use PaoloDavila\TodosBackend\Transformers\Contracts\Transformer;
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;

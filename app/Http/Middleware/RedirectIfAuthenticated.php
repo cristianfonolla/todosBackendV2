@@ -1,6 +1,10 @@
 <?php
 
+<<<<<<< HEAD
 namespace App\TodosBackend\Http\Middleware;
+=======
+namespace PaoloDavila\TodosBackend\Http\Middleware;
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
 
 use Closure;
 use Illuminate\Support\Facades\Auth;

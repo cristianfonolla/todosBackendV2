@@ -1,6 +1,10 @@
 <?php
 
+<<<<<<< HEAD
 namespace App\TodosBackend\Http;
+=======
+namespace PaoloDavila\TodosBackend\Http;
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -24,11 +28,19 @@ class Kernel extends HttpKernel
      */
     protected $middlewareGroups = [
         'web' => [
+<<<<<<< HEAD
             \App\TodosBackend\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\TodosBackend\Http\Middleware\VerifyCsrfToken::class,
+=======
+            \PaoloDavila\TodosBackend\Http\Middleware\EncryptCookies::class,
+            \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+            \Illuminate\Session\Middleware\StartSession::class,
+            \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+            \PaoloDavila\TodosBackend\Http\Middleware\VerifyCsrfToken::class,
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \Laravel\Passport\Http\Middleware\CreateFreshApiToken::class,
 
@@ -52,7 +64,11 @@ class Kernel extends HttpKernel
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings'   => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'can'        => \Illuminate\Auth\Middleware\Authorize::class,
+<<<<<<< HEAD
         'guest'      => \App\TodosBackend\Http\Middleware\RedirectIfAuthenticated::class,
+=======
+        'guest'      => \PaoloDavila\TodosBackend\Http\Middleware\RedirectIfAuthenticated::class,
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
         'throttle'   => \Illuminate\Routing\Middleware\ThrottleRequests::class,
     ];
 }

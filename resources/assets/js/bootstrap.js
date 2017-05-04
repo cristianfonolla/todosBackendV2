@@ -58,7 +58,11 @@ window.io = io
 window.Echo = new Echo({
     broadcaster: 'socket.io',
     host: window.Laravel.echoServerURL,
+<<<<<<< HEAD
     namespace: 'App.TodosBackend.Events'
+=======
+    namespace: 'PaoloDavila.TodosBackend.Events'
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
 });
 
 

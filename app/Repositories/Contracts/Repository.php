@@ -1,6 +1,10 @@
 <?php
 
+<<<<<<< HEAD
 namespace App\TodosBackend\Repositories\Contracts;
+=======
+namespace PaoloDavila\TodosBackend\Repositories\Contracts;
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
 
 interface Repository
 {

@@ -1,11 +1,19 @@
 <?php
 
+<<<<<<< HEAD
 namespace App\TodosBackend;
+=======
+namespace PaoloDavila\TodosBackend;
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
+<<<<<<< HEAD
 use App\TodosBackend\Notifications\ResetPassword;
+=======
+use PaoloDavila\TodosBackend\Notifications\ResetPassword;
+>>>>>>> 5f032173417b209584ba0481b77168133212ef43
 use Spatie\Permission\Traits\HasRoles;
 
 /**
