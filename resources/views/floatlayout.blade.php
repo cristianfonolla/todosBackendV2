@@ -100,7 +100,7 @@
 	</section>
 
 	<div id="footer">
-		@copyright Roger Inc.
+		@copyright Cristian Inc.
 	</div>
 </div>
 </body>

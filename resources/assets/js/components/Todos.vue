@@ -85,141 +85,141 @@
 </template>
 <script>
 
-import Pagination from './Pagination.vue'
-import Todo from './Todo.vue'
+    import Pagination from './Pagination.vue'
+    import Todo from './Todo.vue'
 
-export default {
-    components : { Pagination, Todo },
-    data() {
-        return {
-            todos: [],
-            visibility: 'all', // 'active' 'completed'
-            newTodo: '',
-            perPage: 5,
-            from: 0,
-            to: 0,
-            total: 0,
-            page: 1,
-            editing: false
-        }
-    },
-    computed: {
-        filteredTodos: function() {
+    export default {
+        components : { Pagination, Todo },
+        data() {
+            return {
+                todos: [],
+                visibility: 'all', // 'active' 'completed'
+                newTodo: '',
+                perPage: 5,
+                from: 0,
+                to: 0,
+                total: 0,
+                page: 1,
+                editing: false
+            }
+        },
+        computed: {
+            filteredTodos: function() {
 
-            var filters = {
-                all: function (todos) {
-                    return todos;
-                },
-                active: function (todos) {
-                    return todos.filter(function (todo) {
-                        return !todo.done;
-                    });
-                },
-                completed: function (todos) {
-                    return todos.filter(function (todo) {
-                        return todo.done;
-                    });
+                var filters = {
+                    all: function (todos) {
+                        return todos;
+                    },
+                    active: function (todos) {
+                        return todos.filter(function (todo) {
+                            return !todo.done;
+                        });
+                    },
+                    completed: function (todos) {
+                        return todos.filter(function (todo) {
+                            return todo.done;
+                        });
+                    }
                 }
-            }
-            return filters[this.visibility](this.todos);
+                return filters[this.visibility](this.todos);
 
-        }
-    },
-    created() {
-        console.log('Component todolist created.');
-        this.fetchData();
-    },
-    methods: {
-        getTodoId: function(index) {
-            this.$http.get('/api/v1/task').then((response) => {
-                var todos = this.todos = response.data.data;
-                this.id = todos[index].id;
-            }, (response) => {
-                // error callback
-                sweetAlert("Oops...", "Something went wrong!", "error");
-                console.log(response);
-            });
-        },
-        pageChanged: function(pageNum) {
-            this.page = pageNum;
-            this.fetchPage(pageNum);
-        },
-        addTodo: function() {
-            var value = this.newTodo && this.newTodo.trim();
-            if (!value) {
-                return;
             }
-            var todo = {
-                name: value,
-                priority: 1,
-                done: false,
-                user_id: 1,
-            };
-            this.todos.push(todo);
-            this.newTodo = '';
-            this.addTodoToApi(todo);
         },
-        setVisibility: function(visibility) {
-            this.visibility = visibility;
+        created() {
+            console.log('Component todolist created.');
+            this.fetchData();
         },
-        fetchData: function() {
-            return this.fetchPage(1);
-        },
-        addTodoToApi: function(todo) {
-            this.$http.post('/api/v1/task', {
-                name: todo.name,
-                priority: todo.priority,
-                done: todo.done,
-                user_id: todo.user_id,
-            }).then((response) => {
-                console.log('Task with name \"' + todo.name + '\" created succesfully!');
-            }, (response) => {
-                // error callback
-                sweetAlert("Oops...", "Something went wrong!", "error");
-                console.log(response);
-            });
-            this.fetchPage(this.page);
-        },
-        fetchPage: function(page) {
-            this.$http.get('/api/v1/task?page=' + page).then((response) => {
-                console.log(response);
-                this.todos = response.data.data;
-                this.perPage = response.data.per_page;
-                this.to = response.data.to;
-                this.from = response.data.from;
-                this.total = response.data.total;
-            }, (response) => {
-                // error callback
-                sweetAlert("Oops...", "Something went wrong!", "error");
-                console.log(response);
-            });
-        },
-        deleteTodo: function(id) {
-            var del = this;
-            swal({
-                title: "Are you sure?",
-                text: "You will not be able to recover this task!",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#DD4B55",
-                confirmButtonText: "Yes, delete it!",
-                closeOnConfirm: false
+        methods: {
+            getTodoId: function(index) {
+                this.$http.get('/api/v1/task').then((response) => {
+                    var todos = this.todos = response.data.data;
+                    this.id = todos[index].id;
+                }, (response) => {
+                    // error callback
+                    sweetAlert("Oops...", "Something went wrong!", "error");
+                    console.log(response);
+                });
             },
-            function(){
-                del.deleteTodoFromApi(id);
-                //del.todos.splice(index,1);
-                sweetAlert("Deleted!", "Your task has been deleted.", "success");
-            });
-        },
-        deleteTodoFromApi: function(id) {
-            this.$http.delete('/api/v1/task/' + id).then((response) => {
-                console.log('Task ' + id + ' deleted succesfully!');
-            }, (response) => {
-                sweetAlert("Oops...", "Something went wrong!", "error");
-                console.log(response);
-            });
-            this.fetchPage(this.page);
+            pageChanged: function(pageNum) {
+                this.page = pageNum;
+                this.fetchPage(pageNum);
+            },
+            addTodo: function() {
+                var value = this.newTodo && this.newTodo.trim();
+                if (!value) {
+                    return;
+                }
+                var todo = {
+                    name: value,
+                    priority: 1,
+                    done: false,
+                    user_id: 1,
+                };
+                this.todos.push(todo);
+                this.newTodo = '';
+                this.addTodoToApi(todo);
+            },
+            setVisibility: function(visibility) {
+                this.visibility = visibility;
+            },
+            fetchData: function() {
+                return this.fetchPage(1);
+            },
+            addTodoToApi: function(todo) {
+                this.$http.post('/api/v1/task', {
+                    name: todo.name,
+                    priority: todo.priority,
+                    done: todo.done,
+                    user_id: todo.user_id,
+                }).then((response) => {
+                    console.log('Task with name \"' + todo.name + '\" created succesfully!');
+                }, (response) => {
+                    // error callback
+                    sweetAlert("Oops...", "Something went wrong!", "error");
+                    console.log(response);
+                });
+                this.fetchPage(this.page);
+            },
+            fetchPage: function(page) {
+                this.$http.get('/api/v1/task?page=' + page).then((response) => {
+                    console.log(response);
+                    this.todos = response.data.data;
+                    this.perPage = response.data.per_page;
+                    this.to = response.data.to;
+                    this.from = response.data.from;
+                    this.total = response.data.total;
+                }, (response) => {
+                    // error callback
+                    sweetAlert("Oops...", "Something went wrong!", "error");
+                    console.log(response);
+                });
+            },
+            deleteTodo: function(id) {
+                var del = this;
+                swal({
+                        title: "Are you sure?",
+                        text: "You will not be able to recover this task!",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD4B55",
+                        confirmButtonText: "Yes, delete it!",
+                        closeOnConfirm: false
+                    },
+                    function(){
+                        del.deleteTodoFromApi(id);
+                        //del.todos.splice(index,1);
+                        sweetAlert("Deleted!", "Your task has been deleted.", "success");
+                    });
+            },
+            deleteTodoFromApi: function(id) {
+                this.$http.delete('/api/v1/task/' + id).then((response) => {
+                    console.log('Task ' + id + ' deleted succesfully!');
+                }, (response) => {
+                    sweetAlert("Oops...", "Something went wrong!", "error");
+                    console.log(response);
+                });
+                this.fetchPage(this.page);
+            }
         }
     }
-}
 </script>
